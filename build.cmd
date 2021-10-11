@@ -1,1 +1,1 @@
-pyinstaller --noconfirm --onedir --console --add-data "E:/Github/prushka/resources;resources/"  "E:/Github/prushka/prushka.py"
+pyinstaller --noconfirm --onefile --console --add-data "E:/Github/prushka/resources;resources/"  "E:/Github/prushka/prushka.py"

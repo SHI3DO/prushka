@@ -3,8 +3,7 @@ from modules.Sounds import soundsplayer
 from modules.Presence.RPC import discordrpc
 
 pg.init()
-
-screen = pg.display.set_mode((0, 0), pg.FULLSCREEN, pg.OPENGL)
+screen = pg.display.set_mode((0, 0), pg.FULLSCREEN)
 END_MUSIC_EVENT = pg.USEREVENT + 0  # ID for music Event
 pg.mixer.music.set_endevent(END_MUSIC_EVENT)
 discordrpc.discordrpc()
