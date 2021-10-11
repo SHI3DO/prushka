@@ -1,1 +1,1 @@
-pyinstaller --noconsole --onefile prushka.py
+pyinstaller prushka.spec
