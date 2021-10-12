@@ -1,9 +1,28 @@
 import os
 import random
+from modules.utils import jsonreader
 
 
 def bgm_selector():
-    file_list = os.listdir("./resources/Sounds/ES")
-    toplay = random.randrange(0, len(file_list))
-    print(f"now playing - {file_list[toplay]}")
-    return f"./resources/Sounds/ES/{file_list[toplay]}"
+    bgm_list = os.listdir("./resources/Sounds/ES")
+    bgm_list = [file for file in bgm_list if file.endswith(".json")]
+    for i in range(0, len(bgm_list)):
+        bgm_list[i] = "./resources/Sounds/ES/" + bgm_list[i]
+
+    print(f"Indexing Songs - {bgm_list}")
+
+    bgm_location_list = []
+    bgm_title_list = []
+    bgm_artist_list = []
+
+    for i in range(0, len(bgm_list)):
+        info = jsonreader.get(bgm_list[i])
+        bgm_location_list.append(f"{info.location}")
+        bgm_title_list.append(f"{info.title}")
+        bgm_artist_list.append(f"{info.artist}")
+
+    toplay = random.randrange(0, len(bgm_location_list))
+
+    returnval = [bgm_location_list[toplay], bgm_title_list[toplay], bgm_artist_list[toplay]]
+    print(f"now playing - {returnval[1]}")
+    return returnval

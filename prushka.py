@@ -11,7 +11,7 @@ discordrpc.discordrpc()
 
 def bgm_play():
     pg.mixer.set_num_channels(512)
-    pg.mixer.music.load(soundsplayer.bgm_selector())
+    pg.mixer.music.load(soundsplayer.bgm_selector()[0])
     pg.mixer.music.play()
 
 
