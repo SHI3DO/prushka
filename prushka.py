@@ -3,10 +3,16 @@ from modules.Sounds import soundsplayer
 from modules.Presence.RPC import discordrpc
 
 pg.init()
+icon = pg.image.load("./resources/prushka/icon32.ico")
+pg.display.set_icon(icon)
 screen = pg.display.set_mode((0, 0), pg.FULLSCREEN)
+pg.display.set_caption("prushka!") #게임 이름
+
 END_MUSIC_EVENT = pg.USEREVENT + 0  # ID for music Event
 pg.mixer.music.set_endevent(END_MUSIC_EVENT)
 discordrpc.discordrpc()
+
+clock = pg.time.Clock()
 
 
 def bgm_play():
@@ -25,6 +31,8 @@ while mainLoop:
             if event.type == END_MUSIC_EVENT:
                 bgm_play()
                 print("bgm looped")
+
+    clock.tick(120)
 
     pg.display.update()
 
