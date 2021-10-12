@@ -5,7 +5,8 @@ from modules.Presence.RPC import discordrpc
 pg.init()
 icon = pg.image.load("./resources/prushka/icon32.ico")
 pg.display.set_icon(icon)
-screen = pg.display.set_mode((0, 0), pg.FULLSCREEN)
+screensize = pg.display.Info()
+screen = pg.display.set_mode((screensize.current_w, screensize.current_h))
 pg.display.set_caption("prushka!")
 
 END_MUSIC_EVENT = pg.USEREVENT + 0  # ID for music Event
@@ -23,8 +24,13 @@ def bgm_play():
 
 bgm_play()
 
+BoldFont = pg.font.Font('./resources/Fonts/GmarketSansTTFBold.ttf', 20)
+LightFont = pg.font.Font('./resources/Fonts/GmarketSansTTFLight.ttf', 20)
+RegularFont = pg.font.Font('./resources/Fonts/GmarketSansTTFMedium.ttf', 20)
+
 mainLoop = True
 while mainLoop:
+    screen.fill((0,0,0))
     events = pg.event.get()
     if events:
         for event in events:
@@ -32,6 +38,9 @@ while mainLoop:
                 bgm_play()
                 print("bgm looped")
 
+    fps = LightFont.render(f"{round(clock.get_fps())}", True, (0, 255, 0))
+    fpswidth, fpsheight = fps.get_width(), fps.get_height()
+    screen.blit(fps, (screensize.current_w - screensize.current_w / 32, screensize.current_h / 90))
     clock.tick(120)
 
     pg.display.update()
