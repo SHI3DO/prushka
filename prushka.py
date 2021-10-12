@@ -6,7 +6,7 @@ pg.init()
 icon = pg.image.load("./resources/prushka/icon32.ico")
 pg.display.set_icon(icon)
 screen = pg.display.set_mode((0, 0), pg.FULLSCREEN)
-pg.display.set_caption("prushka!") #게임 이름
+pg.display.set_caption("prushka!")
 
 END_MUSIC_EVENT = pg.USEREVENT + 0  # ID for music Event
 pg.mixer.music.set_endevent(END_MUSIC_EVENT)
