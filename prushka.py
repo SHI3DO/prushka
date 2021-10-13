@@ -30,7 +30,7 @@ RegularFont = pg.font.Font('./resources/Fonts/GmarketSansTTFMedium.ttf', 20)
 
 mainLoop = True
 while mainLoop:
-    screen.fill((0,0,0))
+    screen.fill((0, 0, 0))
     events = pg.event.get()
     if events:
         for event in events:
@@ -38,11 +38,18 @@ while mainLoop:
                 bgm_play()
                 print("bgm looped")
 
+    # fps
     fps = LightFont.render(f"{round(clock.get_fps())}", True, (0, 255, 0))
     fpswidth, fpsheight = fps.get_width(), fps.get_height()
-    screen.blit(fps, (screensize.current_w - screensize.current_w / 32, screensize.current_h / 90))
-    clock.tick(120)
+    screen.blit(fps, (screensize.current_w / 128, screensize.current_h / 90))
 
+    # OptionScreen
+    OptionScreenopener = pg.Surface((screensize.current_w * 0.025, screensize.current_h))
+    OptionScreenopener.set_alpha(30)
+    OptionScreenopener.fill((255, 255, 255))
+    screen.blit(OptionScreenopener, (screensize.current_w * 0.975, 0))
+
+    clock.tick(120)
     pg.display.update()
 
 pg.quit()
