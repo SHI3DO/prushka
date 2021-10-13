@@ -1,6 +1,7 @@
 import pygame as pg
 from modules.Sounds import soundsplayer
 from modules.Presence.RPC import discordrpc
+import os
 
 pg.init()
 icon = pg.image.load("./resources/prushka/icon32.ico")
@@ -11,18 +12,26 @@ pg.display.set_caption("prushka!")
 
 END_MUSIC_EVENT = pg.USEREVENT + 0  # ID for music Event
 pg.mixer.music.set_endevent(END_MUSIC_EVENT)
-discordrpc.discordrpc()
+# discordrpc.discordrpc()
 
 clock = pg.time.Clock()
 
 
 def bgm_play():
     pg.mixer.set_num_channels(512)
-    pg.mixer.music.load(soundsplayer.bgm_selector()[0])
+    sel = soundsplayer.bgm_selector()
+    pg.mixer.music.load(sel[0])
     pg.mixer.music.play()
 
 
-def fpsshower():
+def music_shower():
+    if os.path.isfile("./resources/tmp/music_playing.txt"):
+        f = open("./resources/tmp/music_playing.txt", 'r')
+        musictitle = RegularFont.render(f"now plaing - {f.read()}", True, (255, 255, 255))
+        screen.blit(musictitle, (screensize.current_w * 0.99 - musictitle.get_width(), screensize.current_h / 90))
+
+
+def fps_shower():
     fps = LightFont.render(f"{round(clock.get_fps())}", True, (0, 255, 0))
     screen.blit(fps, (screensize.current_w / 128, screensize.current_h / 90))
 
@@ -50,9 +59,11 @@ while mainLoop:
                 print("bgm looped")
 
     # fps
-    fpsshower()
+    fps_shower()
     # OptionScreen
     Optionscreenopener()
+    # playing_music
+    music_shower()
 
     clock.tick(120)
     pg.display.update()

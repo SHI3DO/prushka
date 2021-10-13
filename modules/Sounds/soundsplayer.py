@@ -24,5 +24,8 @@ def bgm_selector():
     toplay = random.randrange(0, len(bgm_location_list))
 
     returnval = [bgm_location_list[toplay], bgm_title_list[toplay], bgm_artist_list[toplay]]
+    f = open("./resources/tmp/music_playing.txt", 'w')
+    f.write(str(returnval[1]))
+    f.close()
     print(f"now playing - {returnval[1]}")
     return returnval
