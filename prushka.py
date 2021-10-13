@@ -18,7 +18,7 @@ clock = pg.time.Clock()
 
 
 def bgm_play():
-    pg.mixer.set_num_channels(512)
+    pg.mixer.music.unload()
     sel = soundsplayer.bgm_selector()
     pg.mixer.music.load(sel[0])
     pg.mixer.music.play()
@@ -43,9 +43,9 @@ def Optionscreenopener():
     screen.blit(OptionScreenopener, (screensize.current_w * 0.975, 0))
 
 
-BoldFont = pg.font.Font('./resources/Fonts/GmarketSansTTFBold.ttf', 20)
-LightFont = pg.font.Font('./resources/Fonts/GmarketSansTTFLight.ttf', 20)
-RegularFont = pg.font.Font('./resources/Fonts/GmarketSansTTFMedium.ttf', 20)
+BoldFont = pg.font.Font('./resources/Fonts/GmarketSansTTFBold.ttf', int(screensize.current_h/40))
+LightFont = pg.font.Font('./resources/Fonts/GmarketSansTTFLight.ttf', int(screensize.current_h/40))
+RegularFont = pg.font.Font('./resources/Fonts/GmarketSansTTFMedium.ttf', int(screensize.current_h/40))
 
 bgm_play()
 mainLoop = True
