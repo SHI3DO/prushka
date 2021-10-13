@@ -22,6 +22,7 @@ def bgm_selector():
         bgm_artist_list.append(f"{info.artist}")
 
     toplay = random.randrange(0, len(bgm_location_list))
+    print(toplay)
 
     returnval = [bgm_location_list[toplay], bgm_title_list[toplay], bgm_artist_list[toplay]]
     f = open("./resources/tmp/music_playing.txt", 'w')
