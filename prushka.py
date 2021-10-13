@@ -22,12 +22,23 @@ def bgm_play():
     pg.mixer.music.play()
 
 
-bgm_play()
+def fpsshower():
+    fps = LightFont.render(f"{round(clock.get_fps())}", True, (0, 255, 0))
+    screen.blit(fps, (screensize.current_w / 128, screensize.current_h / 90))
+
+
+def Optionscreenopener():
+    OptionScreenopener = pg.Surface((screensize.current_w * 0.025, screensize.current_h))
+    OptionScreenopener.set_alpha(30)
+    OptionScreenopener.fill((255, 255, 255))
+    screen.blit(OptionScreenopener, (screensize.current_w * 0.975, 0))
+
 
 BoldFont = pg.font.Font('./resources/Fonts/GmarketSansTTFBold.ttf', 20)
 LightFont = pg.font.Font('./resources/Fonts/GmarketSansTTFLight.ttf', 20)
 RegularFont = pg.font.Font('./resources/Fonts/GmarketSansTTFMedium.ttf', 20)
 
+bgm_play()
 mainLoop = True
 while mainLoop:
     screen.fill((0, 0, 0))
@@ -39,15 +50,9 @@ while mainLoop:
                 print("bgm looped")
 
     # fps
-    fps = LightFont.render(f"{round(clock.get_fps())}", True, (0, 255, 0))
-    fpswidth, fpsheight = fps.get_width(), fps.get_height()
-    screen.blit(fps, (screensize.current_w / 128, screensize.current_h / 90))
-
+    fpsshower()
     # OptionScreen
-    OptionScreenopener = pg.Surface((screensize.current_w * 0.025, screensize.current_h))
-    OptionScreenopener.set_alpha(30)
-    OptionScreenopener.fill((255, 255, 255))
-    screen.blit(OptionScreenopener, (screensize.current_w * 0.975, 0))
+    Optionscreenopener()
 
     clock.tick(120)
     pg.display.update()
