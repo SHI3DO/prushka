@@ -2,7 +2,6 @@ import pygame as pg
 from modules.Sounds import soundsplayer
 from modules.Presence.RPC import discordrpc
 from modules.Graphics.gui import upbar
-import os
 
 pg.init()
 icon = pg.image.load("./resources/prushka/icon32.ico")
@@ -13,7 +12,7 @@ pg.display.set_caption("prushka!")
 
 END_MUSIC_EVENT = pg.USEREVENT + 0  # ID for music Event
 pg.mixer.music.set_endevent(END_MUSIC_EVENT)
-#discordrpc.discordrpc()
+discordrpc.discordrpc()
 
 clock = pg.time.Clock()
 
