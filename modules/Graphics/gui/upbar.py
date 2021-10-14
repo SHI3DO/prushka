@@ -23,6 +23,11 @@ def music_shower(pg, screen, screensize, font):
         screen.blit(stop_img, (screensize.current_w * 0.99 - musictitle.get_width() / 2 - musictitle.get_width() / 4,
                                screensize.current_h / 100 + screensize.current_h / 90 + musictitle.get_height()))
 
+        next_img = pg.image.load("./resources/textures/next.png")
+        next_img = pg.transform.smoothscale(next_img, (screensize.current_h / 40, screensize.current_h / 40))
+        screen.blit(next_img, (screensize.current_w * 0.99 - musictitle.get_width() / 2 - musictitle.get_width() / 2,
+                               screensize.current_h / 100 + screensize.current_h / 90 + musictitle.get_height()))
+
 
 def fps_shower(screen, screensize, font, clock):
     fps = font.render(f"{round(clock.get_fps())}", True, (0, 255, 0))
