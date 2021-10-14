@@ -6,7 +6,7 @@ div_n = 4
 def Music_shower(pg, screen, screensize, font, play_img, pause_img, stop_img, next_img):
     if os.path.isfile("./resources/tmp/music_playing.txt"):
         f = open("./resources/tmp/music_playing.txt", 'r')
-        musictitle = font.render(f"now plaing - {f.read()}", True, (255, 255, 255))
+        musictitle = font.render(f"now playing - {f.read()}", True, (255, 255, 255))
         f.close()
         screen.blit(musictitle, (screensize.current_w * 0.99 - musictitle.get_width(), screensize.current_h / 90))
 
