@@ -43,7 +43,7 @@ while mainLoop:
         for event in events:
             if event.type == pg.MOUSEBUTTONDOWN:
                 if event.button == 1:  # Left Mouse
-                    clickhandler.LMB(event, screensize)
+                    clickhandler.LMB(event, screensize, pg)
             if event.type == END_MUSIC_EVENT:
                 bgm_play()
                 print("bgm looped")
