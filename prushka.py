@@ -46,7 +46,7 @@ while mainLoop:
     # OptionScreen
     upbar.Optionscreenopener(pg, screen, screensize)
     # playing_music
-    upbar.music_shower(screen, screensize, RegularFont)
+    upbar.music_shower(pg, screen, screensize, RegularFont)
 
     clock.tick(120)
     pg.display.update()
