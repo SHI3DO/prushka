@@ -1,6 +1,7 @@
 import pygame as pg
 from modules.Sounds import soundsplayer
 from modules.Presence.RPC import discordrpc
+from modules.Graphics.gui import upbar
 import os
 
 pg.init()
@@ -12,7 +13,7 @@ pg.display.set_caption("prushka!")
 
 END_MUSIC_EVENT = pg.USEREVENT + 0  # ID for music Event
 pg.mixer.music.set_endevent(END_MUSIC_EVENT)
-discordrpc.discordrpc()
+#discordrpc.discordrpc()
 
 clock = pg.time.Clock()
 
@@ -22,25 +23,6 @@ def bgm_play():
     sel = soundsplayer.bgm_selector()
     pg.mixer.music.load(sel[0])
     pg.mixer.music.play()
-
-
-def music_shower():
-    if os.path.isfile("./resources/tmp/music_playing.txt"):
-        f = open("./resources/tmp/music_playing.txt", 'r')
-        musictitle = RegularFont.render(f"now plaing - {f.read()}", True, (255, 255, 255))
-        screen.blit(musictitle, (screensize.current_w * 0.99 - musictitle.get_width(), screensize.current_h / 90))
-
-
-def fps_shower():
-    fps = LightFont.render(f"{round(clock.get_fps())}", True, (0, 255, 0))
-    screen.blit(fps, (screensize.current_w / 128, screensize.current_h / 90))
-
-
-def Optionscreenopener():
-    OptionScreenopener = pg.Surface((screensize.current_w * 0.025, screensize.current_h))
-    OptionScreenopener.set_alpha(30)
-    OptionScreenopener.fill((255, 255, 255))
-    screen.blit(OptionScreenopener, (screensize.current_w * 0.975, 0))
 
 
 BoldFont = pg.font.Font('./resources/Fonts/GmarketSansTTFBold.ttf', int(screensize.current_h/40))
@@ -58,12 +40,13 @@ while mainLoop:
                 bgm_play()
                 print("bgm looped")
 
+    # GUI
     # fps
-    fps_shower()
+    upbar.fps_shower(screen, screensize, LightFont, clock)
     # OptionScreen
-    Optionscreenopener()
+    upbar.Optionscreenopener(pg, screen, screensize)
     # playing_music
-    music_shower()
+    upbar.music_shower(screen, screensize, RegularFont)
 
     clock.tick(120)
     pg.display.update()
