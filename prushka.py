@@ -20,8 +20,7 @@ clock = pg.time.Clock()
 
 def bgm_play():
     pg.mixer.music.unload()
-    sel = soundsplayer.bgm_selector()
-    pg.mixer.music.load(sel[0])
+    pg.mixer.music.load(soundsplayer.bgm_selector()[0])
     pg.mixer.music.play()
 
 
@@ -29,10 +28,10 @@ BoldFont = pg.font.Font('./resources/Fonts/GmarketSansTTFBold.ttf', int(screensi
 LightFont = pg.font.Font('./resources/Fonts/GmarketSansTTFLight.ttf', int(screensize.current_h/40))
 RegularFont = pg.font.Font('./resources/Fonts/GmarketSansTTFMedium.ttf', int(screensize.current_h/40))
 
-play_img = pg.image.load("./resources/textures/play.png")
-pause_img = pg.image.load("./resources/textures/pause.png")
-stop_img = pg.image.load("./resources/textures/stop.png")
-next_img = pg.image.load("./resources/textures/next.png")
+play_img = pg.image.load("./resources/textures/play.png").convert_alpha()
+pause_img = pg.image.load("./resources/textures/pause.png").convert_alpha()
+stop_img = pg.image.load("./resources/textures/stop.png").convert_alpha()
+next_img = pg.image.load("./resources/textures/next.png").convert_alpha()
 
 bgm_play()
 mainLoop = True
@@ -53,7 +52,7 @@ while mainLoop:
     # playing_music
     upbar.Music_shower(pg, screen, screensize, RegularFont, play_img, pause_img, stop_img, next_img)
 
-    clock.tick(120)
+    dt = clock.tick(120)
     pg.display.update()
 
 pg.quit()
