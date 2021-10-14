@@ -3,6 +3,7 @@ from modules.Sounds import soundsplayer
 from modules.Presence.RPC import discordrpc
 from modules.Graphics.gui import upbar
 
+
 pg.init()
 icon = pg.image.load("./resources/prushka/icon32.ico")
 pg.display.set_icon(icon)
@@ -28,6 +29,11 @@ BoldFont = pg.font.Font('./resources/Fonts/GmarketSansTTFBold.ttf', int(screensi
 LightFont = pg.font.Font('./resources/Fonts/GmarketSansTTFLight.ttf', int(screensize.current_h/40))
 RegularFont = pg.font.Font('./resources/Fonts/GmarketSansTTFMedium.ttf', int(screensize.current_h/40))
 
+play_img = pg.image.load("./resources/textures/play.png")
+pause_img = pg.image.load("./resources/textures/pause.png")
+stop_img = pg.image.load("./resources/textures/stop.png")
+next_img = pg.image.load("./resources/textures/next.png")
+
 bgm_play()
 mainLoop = True
 while mainLoop:
@@ -41,13 +47,13 @@ while mainLoop:
 
     # GUI
     # fps
-    upbar.fps_shower(screen, screensize, LightFont, clock)
+    upbar.Fps_shower(screen, screensize, LightFont, clock)
     # OptionScreen
     upbar.Optionscreenopener(pg, screen, screensize)
     # playing_music
-    upbar.music_shower(pg, screen, screensize, RegularFont)
+    upbar.Music_shower(pg, screen, screensize, RegularFont, play_img, pause_img, stop_img, next_img)
 
-    clock.tick(60)
+    clock.tick(120)
     pg.display.update()
 
 pg.quit()
