@@ -12,22 +12,22 @@ def Music_shower(pg, screen, screensize, font, play_img, pause_img, stop_img, ne
 
         play_img = pg.transform.smoothscale(play_img, (screensize.current_h / 40, screensize.current_h / 40))
         screen.blit(play_img, (screensize.current_w * 0.99 - musictitle.get_width() / 2 -
-                               1.5*musictitle.get_width() / div_n, screensize.current_h / 100 +
-                               screensize.current_h / 90 + musictitle.get_height()))
-
-        stop_img = pg.transform.smoothscale(stop_img, (screensize.current_h / 40, screensize.current_h / 40))
-        screen.blit(stop_img, (screensize.current_w * 0.99 - musictitle.get_width() / 2 -
-                               0.5*musictitle.get_width() / div_n, screensize.current_h / 100 +
+                               1.5 * musictitle.get_width() / div_n, screensize.current_h / 100 +
                                screensize.current_h / 90 + musictitle.get_height()))
 
         pause_img = pg.transform.smoothscale(pause_img, (screensize.current_h / 40, screensize.current_h / 40))
-        screen.blit(pause_img, (screensize.current_w * 0.99 - musictitle.get_width() / 2 +
-                                0.5*musictitle.get_width() / div_n, screensize.current_h / 100 +
+        screen.blit(pause_img, (screensize.current_w * 0.99 - musictitle.get_width() / 2 -
+                                0.5 * musictitle.get_width() / div_n, screensize.current_h / 100 +
                                 screensize.current_h / 90 + musictitle.get_height()))
+
+        stop_img = pg.transform.smoothscale(stop_img, (screensize.current_h / 40, screensize.current_h / 40))
+        screen.blit(stop_img, (screensize.current_w * 0.99 - musictitle.get_width() / 2 +
+                               0.5 * musictitle.get_width() / div_n, screensize.current_h / 100 +
+                               screensize.current_h / 90 + musictitle.get_height()))
 
         next_img = pg.transform.smoothscale(next_img, (screensize.current_h / 40, screensize.current_h / 40))
         screen.blit(next_img, (screensize.current_w * 0.99 - musictitle.get_width() / 2 +
-                               1.5*musictitle.get_width() / div_n, screensize.current_h / 100 +
+                               1.5 * musictitle.get_width() / div_n, screensize.current_h / 100 +
                                screensize.current_h / 90 + musictitle.get_height()))
 
 

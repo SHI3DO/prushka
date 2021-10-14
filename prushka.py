@@ -2,7 +2,7 @@ import pygame as pg
 from modules.Sounds import soundsplayer
 from modules.Presence.RPC import discordrpc
 from modules.Graphics.gui import upbar
-
+from modules.Control import clickhandler
 
 pg.init()
 icon = pg.image.load("./resources/prushka/icon32.ico")
@@ -13,7 +13,7 @@ pg.display.set_caption("prushka!")
 
 END_MUSIC_EVENT = pg.USEREVENT + 0  # ID for music Event
 pg.mixer.music.set_endevent(END_MUSIC_EVENT)
-discordrpc.discordrpc()
+#discordrpc.discordrpc()
 
 clock = pg.time.Clock()
 
@@ -24,9 +24,9 @@ def bgm_play():
     pg.mixer.music.play()
 
 
-BoldFont = pg.font.Font('./resources/Fonts/GmarketSansTTFBold.ttf', int(screensize.current_h/40))
-LightFont = pg.font.Font('./resources/Fonts/GmarketSansTTFLight.ttf', int(screensize.current_h/40))
-RegularFont = pg.font.Font('./resources/Fonts/GmarketSansTTFMedium.ttf', int(screensize.current_h/40))
+BoldFont = pg.font.Font('./resources/Fonts/GmarketSansTTFBold.ttf', int(screensize.current_h / 40))
+LightFont = pg.font.Font('./resources/Fonts/GmarketSansTTFLight.ttf', int(screensize.current_h / 40))
+RegularFont = pg.font.Font('./resources/Fonts/GmarketSansTTFMedium.ttf', int(screensize.current_h / 40))
 
 play_img = pg.image.load("./resources/textures/play.png").convert_alpha()
 pause_img = pg.image.load("./resources/textures/pause.png").convert_alpha()
@@ -38,8 +38,12 @@ mainLoop = True
 while mainLoop:
     screen.fill((0, 0, 0))
     events = pg.event.get()
+
     if events:
         for event in events:
+            if event.type == pg.MOUSEBUTTONDOWN:
+                if event.button == 1:  # Left Mouse
+                    clickhandler.LMB(event, screensize)
             if event.type == END_MUSIC_EVENT:
                 bgm_play()
                 print("bgm looped")
