@@ -5,4 +5,3 @@
 <div align="center">
   <a href="https://discord.gg/T3Z8hYS"><img src="https://discordapp.com/api/guilds/749595288280498188/widget.png?style=banner2" alt="" /></a>
 </div>
-prushka
