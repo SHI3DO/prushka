@@ -48,7 +48,7 @@ while mainLoop:
     # playing_music
     upbar.music_shower(pg, screen, screensize, RegularFont)
 
-    clock.tick(120)
+    clock.tick(60)
     pg.display.update()
 
 pg.quit()
