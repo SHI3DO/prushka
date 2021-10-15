@@ -17,6 +17,9 @@ pg.mixer.music.set_endevent(END_MUSIC_EVENT)
 
 clock = pg.time.Clock()
 
+f = open("./resources/tmp/music_list.txt", 'w')
+f.close()
+
 
 def bgm_play():
     pg.mixer.music.unload()
@@ -54,7 +57,7 @@ while mainLoop:
     # OptionScreen
     upbar.Optionscreenopener(pg, screen, screensize)
     # playing_music
-    upbar.Music_shower(pg, screen, screensize, RegularFont, play_img, pause_img, stop_img)
+    upbar.Music_shower(pg, screen, screensize, RegularFont, play_img, pause_img, stop_img, next_img)
 
     dt = clock.tick(120)
     pg.display.update()

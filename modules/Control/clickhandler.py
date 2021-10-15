@@ -16,11 +16,16 @@ def LMB(lmb, screensize, pg):
                        screensize.current_h / 40)
 
     if play_btn.collidepoint(lmb.pos):
-        pg.mixer.music.unpause()
+        #ahhhh
 
     if pause_btn.collidepoint(lmb.pos):
         pg.mixer.music.pause()
 
     if stop_btn.collidepoint(lmb.pos):
-        pg.mixer.music.stop()
-
+        pg.mixer.music.unload()
+        f = open("./resources/tmp/music_list.txt", 'r')
+        li = f.readlines()
+        if len(li) > 0:
+            print(li[len(li) - 1].replace("\n", ''))
+            pg.mixer.music.load(li[len(li) - 1].replace("\n", ''))
+        f.close()

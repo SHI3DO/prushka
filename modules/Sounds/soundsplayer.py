@@ -28,6 +28,9 @@ def bgm_selector():
     f = open("./resources/tmp/music_playing.txt", 'w')
     f.write(str(returnval[1]))
     f.close()
+    f = open("./resources/tmp/music_list.txt", 'a')
+    f.write(str(returnval[0]) + "\n")
+    f.close()
     print(f"now playing - {returnval[1]}")
     return returnval
 
