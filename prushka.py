@@ -13,7 +13,7 @@ pg.display.set_caption("prushka!")
 
 END_MUSIC_EVENT = pg.USEREVENT + 0  # ID for music Event
 pg.mixer.music.set_endevent(END_MUSIC_EVENT)
-discordrpc.discordrpc()
+#discordrpc.discordrpc()
 
 clock = pg.time.Clock()
 
@@ -54,7 +54,7 @@ while mainLoop:
     # OptionScreen
     upbar.Optionscreenopener(pg, screen, screensize)
     # playing_music
-    upbar.Music_shower(pg, screen, screensize, RegularFont, play_img, pause_img, stop_img, next_img)
+    upbar.Music_shower(pg, screen, screensize, RegularFont, play_img, pause_img, stop_img)
 
     dt = clock.tick(120)
     pg.display.update()
