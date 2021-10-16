@@ -1,4 +1,5 @@
 from modules.Sounds import soundsplayer
+from modules.utils import meipath
 
 
 def LMB(lmb, screensize, pg):
@@ -30,7 +31,7 @@ def LMB(lmb, screensize, pg):
 
     if prev_btn.collidepoint(lmb.pos):
         pg.mixer.music.unload()
-        f = open("./resources/tmp/music_list.txt", 'r', encoding='UTF-8')
+        f = open(meipath.meipass("resources/tmp/music_list.txt"), 'r', encoding='UTF-8')
         li = f.readlines()
         if len(li) > 0:
             print(li[len(li) - 1].replace("\n", ''))
@@ -50,7 +51,7 @@ def LMB(lmb, screensize, pg):
 
     if stop_btn.collidepoint(lmb.pos):
         pg.mixer.music.unload()
-        f = open("./resources/tmp/music_list.txt", 'r', encoding='UTF-8')
+        f = open(meipath.meipass("resources/tmp/music_list.txt"), 'r', encoding='UTF-8')
         li = f.readlines()
         if len(li) > 0:
             print(li[len(li) - 1].replace("\n", ''))
@@ -61,7 +62,7 @@ def LMB(lmb, screensize, pg):
 
     if next_btn.collidepoint(lmb.pos):
         pg.mixer.music.unload()
-        f = open("./resources/tmp/music_list.txt", 'r', encoding='UTF-8')
+        f = open(meipath.meipass("resources/tmp/music_list.txt"), 'r', encoding='UTF-8')
         li = f.readlines()
         if len(li) > 0:
             print(li[len(li) - 1].replace("\n", ''))

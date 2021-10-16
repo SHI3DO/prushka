@@ -1,1 +1,1 @@
-pyinstaller --noconfirm --onefile --windowed --icon "E:/Github/prushka/resources/prushka/icon256.ico"  "E:/Github/prushka/prushka.py"
+pyinstaller --noconfirm --onefile --windowed --icon "E:/Github/prushka/resources/prushka/icon256.ico" --add-data "E:/Github/prushka/resources;resources/"  "E:/Github/prushka/prushka.py"
