@@ -35,6 +35,7 @@ play_img = pg.image.load("./resources/textures/play.png").convert_alpha()
 pause_img = pg.image.load("./resources/textures/pause.png").convert_alpha()
 stop_img = pg.image.load("./resources/textures/stop.png").convert_alpha()
 next_img = pg.image.load("./resources/textures/next.png").convert_alpha()
+prev_img = pg.image.load("./resources/textures/prev.png").convert_alpha()
 
 bgm_play()
 mainLoop = True
@@ -57,7 +58,7 @@ while mainLoop:
     # OptionScreen
     upbar.Optionscreenopener(pg, screen, screensize)
     # playing_music
-    upbar.Music_shower(pg, screen, screensize, RegularFont, play_img, pause_img, stop_img, next_img)
+    upbar.Music_shower(pg, screen, screensize, RegularFont, play_img, pause_img, stop_img, next_img, prev_img)
 
     dt = clock.tick(120)
     pg.display.update()

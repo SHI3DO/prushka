@@ -1,1 +1,1 @@
-./resources/Sounds/ES/3.wav
+./resources/Sounds/ES/2.wav

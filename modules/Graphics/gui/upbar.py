@@ -2,12 +2,15 @@ import os
 from modules.Graphics.gui import audio_spectrum
 
 
-def Music_shower(pg, screen, screensize, font, play_img, pause_img, stop_img, next_img):
+def Music_shower(pg, screen, screensize, font, play_img, pause_img, stop_img, next_img, prev_img):
     if os.path.isfile("./resources/tmp/music_playing.txt"):
         f = open("./resources/tmp/music_playing.txt", 'r')
         musictitle = font.render(f"now playing - {f.read()}", True, (255, 255, 255))
         f.close()
         screen.blit(musictitle, (screensize.current_w * 0.99 - musictitle.get_width(), screensize.current_h / 90))
+
+        prev_img = pg.transform.smoothscale(prev_img, (screensize.current_h / 40, screensize.current_h / 40))
+        screen.blit(prev_img, (screensize.current_w * 0.85, screensize.current_h / 20))
 
         play_img = pg.transform.smoothscale(play_img, (screensize.current_h / 40, screensize.current_h / 40))
         screen.blit(play_img, (screensize.current_w * 0.88, screensize.current_h / 20))
