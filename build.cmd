@@ -1,1 +1,1 @@
-pyinstaller --windowed --noconsole --clean --onefile prushka.spec
+pyinstaller --noconfirm --onefile --windowed --icon "E:/Github/prushka/resources/prushka/icon256.ico"  "E:/Github/prushka/prushka.py"
