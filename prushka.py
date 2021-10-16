@@ -3,10 +3,9 @@ from modules.Sounds import soundsplayer
 from modules.Presence.RPC import discordrpc
 from modules.Graphics.gui import upbar
 from modules.Control import clickhandler
-from modules.utils import meipath
 
 pg.init()
-icon = pg.image.load(meipath.meipass("resources/prushka/icon32.ico"))
+icon = pg.image.load("./resources/prushka/icon32.ico")
 pg.display.set_icon(icon)
 screensize = pg.display.Info()
 screen = pg.display.set_mode((screensize.current_w, screensize.current_h))
@@ -18,7 +17,7 @@ pg.mixer.music.set_endevent(END_MUSIC_EVENT)
 
 clock = pg.time.Clock()
 
-f = open(meipath.meipass("resources/tmp/music_list.txt"), 'w', encoding='UTF-8')
+f = open("./resources/tmp/music_list.txt", 'w', encoding='UTF-8')
 f.close()
 
 
@@ -28,15 +27,15 @@ def bgm_play():
     pg.mixer.music.play()
 
 
-BoldFont = pg.font.Font(meipath.meipass("resources/Fonts/GmarketSansTTFBold.ttf"), int(screensize.current_h / 40))
-LightFont = pg.font.Font(meipath.meipass("resources/Fonts/GmarketSansTTFLight.ttf"), int(screensize.current_h / 40))
-RegularFont = pg.font.Font(meipath.meipass("resources/Fonts/GmarketSansTTFMedium.ttf"), int(screensize.current_h / 40))
+BoldFont = pg.font.Font('./resources/Fonts/GmarketSansTTFBold.ttf', int(screensize.current_h / 40))
+LightFont = pg.font.Font('./resources/Fonts/GmarketSansTTFLight.ttf', int(screensize.current_h / 40))
+RegularFont = pg.font.Font('./resources/Fonts/GmarketSansTTFMedium.ttf', int(screensize.current_h / 40))
 
-play_img = pg.image.load(meipath.meipass("resources/textures/play.png")).convert_alpha()
-pause_img = pg.image.load(meipath.meipass("resources/textures/pause.png")).convert_alpha()
-stop_img = pg.image.load(meipath.meipass("resources/textures/stop.png")).convert_alpha()
-next_img = pg.image.load(meipath.meipass("resources/textures/next.png")).convert_alpha()
-prev_img = pg.image.load(meipath.meipass("resources/textures/prev.png")).convert_alpha()
+play_img = pg.image.load("./resources/textures/play.png").convert_alpha()
+pause_img = pg.image.load("./resources/textures/pause.png").convert_alpha()
+stop_img = pg.image.load("./resources/textures/stop.png").convert_alpha()
+next_img = pg.image.load("./resources/textures/next.png").convert_alpha()
+prev_img = pg.image.load("./resources/textures/prev.png").convert_alpha()
 
 bgm_play()
 mainLoop = True
