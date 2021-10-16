@@ -14,7 +14,7 @@ pg.display.set_caption("prushka!")
 
 END_MUSIC_EVENT = pg.USEREVENT + 0  # ID for music Event
 pg.mixer.music.set_endevent(END_MUSIC_EVENT)
-# discordrpc.discordrpc()
+discordrpc.discordrpc()
 
 clock = pg.time.Clock()
 
