@@ -17,7 +17,7 @@ pg.mixer.music.set_endevent(END_MUSIC_EVENT)
 
 clock = pg.time.Clock()
 
-f = open("./resources/tmp/music_list.txt", 'w')
+f = open("./resources/tmp/music_list.txt", 'w', encoding='UTF-8')
 f.close()
 
 

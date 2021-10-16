@@ -4,7 +4,7 @@ from modules.Graphics.gui import audio_spectrum
 
 def Music_shower(pg, screen, screensize, font, play_img, pause_img, stop_img, next_img, prev_img):
     if os.path.isfile("./resources/tmp/music_playing.txt"):
-        f = open("./resources/tmp/music_playing.txt", 'r')
+        f = open("./resources/tmp/music_playing.txt", 'r', encoding='UTF-8')
         musictitle = font.render(f"now playing - {f.read()}", True, (255, 255, 255))
         f.close()
         screen.blit(musictitle, (screensize.current_w * 0.99 - musictitle.get_width(), screensize.current_h / 90))
