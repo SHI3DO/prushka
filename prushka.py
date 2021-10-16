@@ -1,5 +1,6 @@
 import pygame as pg
 from modules.Sounds import soundsplayer
+from pygame.locals import *
 from modules.Presence.RPC import discordrpc
 from modules.Graphics.gui import upbar
 from modules.Control import clickhandler
@@ -8,12 +9,12 @@ pg.init()
 icon = pg.image.load("./resources/prushka/icon32.ico")
 pg.display.set_icon(icon)
 screensize = pg.display.Info()
-screen = pg.display.set_mode((screensize.current_w, screensize.current_h))
+screen = pg.display.set_mode((screensize.current_w, screensize.current_h), DOUBLEBUF)
 pg.display.set_caption("prushka!")
 
 END_MUSIC_EVENT = pg.USEREVENT + 0  # ID for music Event
 pg.mixer.music.set_endevent(END_MUSIC_EVENT)
-#discordrpc.discordrpc()
+# discordrpc.discordrpc()
 
 clock = pg.time.Clock()
 
