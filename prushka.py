@@ -22,6 +22,10 @@ clock = pg.time.Clock()
 f = open("./resources/tmp/music_list.txt", 'w', encoding='UTF-8')
 f.close()
 
+f = open("./resources/tmp/options_screen.txt", 'w', encoding='UTF-8')
+f.write("0")
+f.close()
+
 
 def bgm_play():
     pg.mixer.music.unload()
@@ -53,7 +57,7 @@ while mainLoop:
         for event in events:
             if event.type == pg.MOUSEBUTTONDOWN:
                 if event.button == 1:  # Left Mouse
-                    clickhandler.LMB(event, screensize, pg)
+                    clickhandler.LMB(event, screen, screensize, pg)
             if event.type == END_MUSIC_EVENT:
                 bgm_play()
 

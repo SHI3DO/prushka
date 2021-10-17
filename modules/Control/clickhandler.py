@@ -1,7 +1,7 @@
 from modules.Sounds import soundsplayer
+from modules.Graphics.gui.main import optionscreen
 
-
-def LMB(lmb, screensize, pg):
+def LMB(lmb, screen, screensize, pg):
     # Music Handling
     prev_btn = pg.Rect(screensize.current_w * 0.85,
                        screensize.current_h / 20,
@@ -70,4 +70,22 @@ def LMB(lmb, screensize, pg):
         else:
             pg.mixer.music.load(soundsplayer.bgm_selector()[0])
             pg.mixer.music.play()
+        f.close()
+
+    gear_btn = pg.Rect(screensize.current_w * 0.97,
+                       screensize.current_h * 19 / 20,
+                       screensize.current_h / 30,
+                       screensize.current_h / 30)
+
+    if gear_btn.collidepoint(lmb.pos):
+        f = open("./resources/tmp/options_screen.txt", 'r', encoding='UTF-8')
+        if f.read() == "0":
+            f.close()
+            f = open("./resources/tmp/options_screen.txt", 'w', encoding='UTF-8')
+            f.write("1")
+        else:
+            f.close()
+            f = open("./resources/tmp/options_screen.txt", 'w', encoding='UTF-8')
+            f.write("0")
+
         f.close()
