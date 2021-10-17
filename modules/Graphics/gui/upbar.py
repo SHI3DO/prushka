@@ -1,5 +1,4 @@
 import os
-from modules.Graphics.gui import audio_spectrum
 
 
 def Music_shower(pg, screen, screensize, font, play_img, pause_img, stop_img, next_img, prev_img):
@@ -23,8 +22,6 @@ def Music_shower(pg, screen, screensize, font, play_img, pause_img, stop_img, ne
 
         next_img = pg.transform.smoothscale(next_img, (screensize.current_h / 40, screensize.current_h / 40))
         screen.blit(next_img, (screensize.current_w * 0.97, screensize.current_h / 20))
-
-        audio_spectrum.spectrum(pg, screen, screensize)
 
 
 def Fps_shower(screen, screensize, font, clock):
