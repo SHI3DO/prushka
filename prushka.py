@@ -5,6 +5,7 @@ from modules.Presence.RPC import discordrpc
 from modules.Graphics.gui import upbar
 from modules.Control import clickhandler
 from modules.Graphics.gui import background
+from modules.Graphics.gui import bottombar
 
 pg.init()
 icon = pg.image.load("./resources/prushka/icon32.ico")
@@ -39,6 +40,9 @@ stop_img = pg.image.load("./resources/textures/stop.png").convert_alpha()
 next_img = pg.image.load("./resources/textures/next.png").convert_alpha()
 prev_img = pg.image.load("./resources/textures/prev.png").convert_alpha()
 
+bg_img = pg.image.load("./resources/tmp/bg/a.png").convert_alpha()
+bg_img = pg.transform.smoothscale(bg_img, (screensize.current_w, screensize.current_h))
+
 bgm_play()
 mainLoop = True
 while mainLoop:
@@ -56,7 +60,9 @@ while mainLoop:
 
     # GUI
     # background
-    background.bg(pg, screen, screensize)
+    background.bg(screen, bg_img)
+    bottombar.bottom(pg, screen, screensize, RegularFont)
+    bottombar.bottomnews(pg, screen, screensize)
     # fps
     upbar.Fps_shower(screen, screensize, LightFont, clock)
     # OptionScreen
