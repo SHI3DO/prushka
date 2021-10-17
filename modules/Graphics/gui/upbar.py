@@ -25,7 +25,7 @@ def Music_shower(pg, screen, screensize, font, play_img, pause_img, stop_img, ne
 
 
 def Fps_shower(screen, screensize, font, clock):
-    fps = font.render(f"{round(clock.get_fps())}", True, (0, 255, 0))
+    fps = font.render(f"{round(clock.get_fps())}", True, (255, 255, 255))
     screen.blit(fps, (screensize.current_w / 128, screensize.current_h / 90))
 
 

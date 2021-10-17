@@ -61,8 +61,8 @@ while mainLoop:
     # GUI
     # background
     background.bg(screen, bg_img)
-    bottombar.bottom(pg, screen, screensize, RegularFont)
     bottombar.bottomnews(pg, screen, screensize)
+    bottombar.bottom(pg, screen, screensize, RegularFont)
     # fps
     upbar.Fps_shower(screen, screensize, LightFont, clock)
     # OptionScreen

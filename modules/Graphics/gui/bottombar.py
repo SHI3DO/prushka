@@ -6,7 +6,7 @@ def bottom(pg, screen, screensize, font):
 
 
 def bottomnews(pg, screen, screensize):
-    Bottomlight = pg.Surface((screensize.current_w, screensize.current_h / 7))
+    Bottomlight = pg.Surface((screensize.current_w, screensize.current_h / 6))
     Bottomlight.set_alpha(100)
-    Bottomlight.fill((255, 255, 255))
-    screen.blit(Bottomlight, (0, screensize.current_h * 6 / 7))
+    Bottomlight.fill((0, 0, 0))
+    screen.blit(Bottomlight, (0, screensize.current_h * 5 / 6))
