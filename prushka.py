@@ -2,10 +2,9 @@ import pygame as pg
 from modules.Sounds import soundsplayer
 from pygame.locals import *
 from modules.Presence.RPC import discordrpc
-from modules.Graphics.gui import upbar
 from modules.Control import clickhandler
 from modules.Graphics.gui import background
-from modules.Graphics.gui import bottombar
+from modules.Graphics.gui import mainscene
 
 pg.init()
 icon = pg.image.load("./resources/prushka/icon32.ico")
@@ -39,6 +38,7 @@ pause_img = pg.image.load("./resources/textures/pause.png").convert_alpha()
 stop_img = pg.image.load("./resources/textures/stop.png").convert_alpha()
 next_img = pg.image.load("./resources/textures/next.png").convert_alpha()
 prev_img = pg.image.load("./resources/textures/prev.png").convert_alpha()
+gear_img = pg.image.load("./resources/textures/gear.png").convert_alpha()
 
 bg_img = pg.image.load("./resources/tmp/bg/a.png").convert_alpha()
 bg_img = pg.transform.smoothscale(bg_img, (screensize.current_w, screensize.current_h))
@@ -56,19 +56,14 @@ while mainLoop:
                     clickhandler.LMB(event, screensize, pg)
             if event.type == END_MUSIC_EVENT:
                 bgm_play()
-                print("bgm looped")
 
     # GUI
     # background
     background.bg(screen, bg_img)
-    bottombar.bottomnews(pg, screen, screensize)
-    bottombar.bottom(pg, screen, screensize, RegularFont)
-    # fps
-    upbar.Fps_shower(screen, screensize, LightFont, clock)
-    # OptionScreen
-    upbar.Optionscreenopener(pg, screen, screensize)
-    # playing_music
-    upbar.Music_shower(pg, screen, screensize, RegularFont, play_img, pause_img, stop_img, next_img, prev_img)
+
+    # MainScene
+    mainscene.play(pg, screen, screensize, clock, LightFont, RegularFont, play_img, pause_img, stop_img, next_img,
+                   prev_img, gear_img)
 
     dt = clock.tick(120)
     pg.display.update()
