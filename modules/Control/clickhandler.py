@@ -33,10 +33,15 @@ def LMB(lmb, screen, screensize, pg):
                        screensize.current_h / 30,
                        screensize.current_h / 30)
 
-    circle_btn = pg.Rect(screensize.current_w * 23/24,
+    circle_btn = pg.Rect(screensize.current_w * 23 / 24,
                          screensize.current_h / 7,
                          screensize.current_h / 20,
                          screensize.current_h / 20)
+
+    chat_btn = pg.Rect(screensize.current_w * 0.94,
+                       screensize.current_h * 19 / 20,
+                       screensize.current_h / 30,
+                       screensize.current_h / 30)
 
     if prev_btn.collidepoint(lmb.pos):
         pg.mixer.music.unload()
@@ -111,3 +116,16 @@ def LMB(lmb, screen, screensize, pg):
             fr.close()
         else:
             f.close()
+
+    if chat_btn.collidepoint(lmb.pos):
+        f = open("./resources/tmp/chat_screen.txt", 'r', encoding='UTF-8')
+        if f.read() == "0":
+            f.close()
+            f = open("./resources/tmp/chat_screen.txt", 'w', encoding='UTF-8')
+            f.write("1")
+        else:
+            f.close()
+            f = open("./resources/tmp/chat_screen.txt", 'w', encoding='UTF-8')
+            f.write("0")
+
+        f.close()

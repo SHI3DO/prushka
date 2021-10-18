@@ -25,6 +25,10 @@ f = open("./resources/tmp/options_screen.txt", 'w', encoding='UTF-8')
 f.write("0")
 f.close()
 
+f = open("./resources/tmp/chat_screen.txt", 'w', encoding='UTF-8')
+f.write("0")
+f.close()
+
 f = open("./resources/tmp/options_discordrpc.txt", 'r', encoding='UTF-8')
 if f.read() == "1":
     discordrpc.discordrpc()
@@ -48,6 +52,7 @@ prev_img = pg.image.load("./resources/textures/prev.png").convert_alpha()
 gear_img = pg.image.load("./resources/textures/gear.png").convert_alpha()
 circle_img = pg.image.load("./resources/textures/circle.png").convert_alpha()
 circlefilled_img = pg.image.load("./resources/textures/circle_filled.png").convert_alpha()
+chat_img = pg.image.load("./resources/textures/chat.png").convert_alpha()
 
 bg_img = pg.image.load("./resources/tmp/bg/a.png").convert_alpha()
 bg_img = pg.transform.smoothscale(bg_img, (screensize.current_w, screensize.current_h))
@@ -71,8 +76,8 @@ while mainLoop:
     background.bg(screen, bg_img)
 
     # MainScene
-    mainscene.play(pg, screen, screensize, clock, LightFont, RegularFont, BoldFont, play_img, pause_img, stop_img, next_img,
-                   prev_img, gear_img, circle_img, circlefilled_img)
+    mainscene.play(pg, screen, screensize, clock, LightFont, RegularFont, BoldFont, play_img, pause_img, stop_img,
+                   next_img, prev_img, gear_img, circle_img, circlefilled_img, chat_img)
 
     dt = clock.tick(120)
     pg.display.update()

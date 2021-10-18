@@ -15,3 +15,8 @@ def bottomnews(pg, screen, screensize):
 def optionbtn(pg, screen, screensize, gear_img):
     gear_img = pg.transform.smoothscale(gear_img, (screensize.current_h / 30, screensize.current_h / 30))
     screen.blit(gear_img, (screensize.current_w * 0.97, screensize.current_h * 19 / 20))
+
+
+def chatbtn(pg, screen, screensize, chat_img):
+    chat_img = pg.transform.smoothscale(chat_img, (screensize.current_h / 30, screensize.current_h / 30))
+    screen.blit(chat_img, (screensize.current_w * 0.94, screensize.current_h * 19 / 20))
