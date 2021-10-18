@@ -15,7 +15,6 @@ pg.display.set_caption("prushka!")
 
 END_MUSIC_EVENT = pg.USEREVENT + 0  # ID for music Event
 pg.mixer.music.set_endevent(END_MUSIC_EVENT)
-# discordrpc.discordrpc()
 
 clock = pg.time.Clock()
 
@@ -50,7 +49,7 @@ gear_img = pg.image.load("./resources/textures/gear.png").convert_alpha()
 circle_img = pg.image.load("./resources/textures/circle.png").convert_alpha()
 circlefilled_img = pg.image.load("./resources/textures/circle_filled.png").convert_alpha()
 
-bg_img = pg.image.load("./resources/tmp/bg/a.png").convert_alpha()
+bg_img = pg.image.load("./resources/tmp/bg/1.png").convert_alpha()
 bg_img = pg.transform.smoothscale(bg_img, (screensize.current_w, screensize.current_h))
 
 bgm_play()
