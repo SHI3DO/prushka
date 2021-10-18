@@ -26,6 +26,10 @@ f = open("./resources/tmp/options_screen.txt", 'w', encoding='UTF-8')
 f.write("0")
 f.close()
 
+f = open("./resources/tmp/options_discordrpc.txt", 'w', encoding='UTF-8')
+f.write("0")
+f.close()
+
 
 def bgm_play():
     pg.mixer.music.unload()
@@ -43,6 +47,8 @@ stop_img = pg.image.load("./resources/textures/stop.png").convert_alpha()
 next_img = pg.image.load("./resources/textures/next.png").convert_alpha()
 prev_img = pg.image.load("./resources/textures/prev.png").convert_alpha()
 gear_img = pg.image.load("./resources/textures/gear.png").convert_alpha()
+circle_img = pg.image.load("./resources/textures/circle.png").convert_alpha()
+circlefilled_img = pg.image.load("./resources/textures/circle_filled.png").convert_alpha()
 
 bg_img = pg.image.load("./resources/tmp/bg/a.png").convert_alpha()
 bg_img = pg.transform.smoothscale(bg_img, (screensize.current_w, screensize.current_h))
@@ -66,8 +72,8 @@ while mainLoop:
     background.bg(screen, bg_img)
 
     # MainScene
-    mainscene.play(pg, screen, screensize, clock, LightFont, RegularFont, play_img, pause_img, stop_img, next_img,
-                   prev_img, gear_img)
+    mainscene.play(pg, screen, screensize, clock, LightFont, RegularFont, BoldFont, play_img, pause_img, stop_img, next_img,
+                   prev_img, gear_img, circle_img, circlefilled_img)
 
     dt = clock.tick(120)
     pg.display.update()
