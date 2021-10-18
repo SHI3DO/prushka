@@ -1,12 +1,9 @@
-from modules.Graphics.gui.main import bottombar, upbar, optionscreen, spectrum
+from modules.Graphics.gui.main import bottombar, upbar, optionscreen
 
 
 def play(pg, screen, screensize, clock, lightfont, regularfont, play_img, pause_img, stop_img, next_img, prev_img,
-         gear_img, audiot, audiotimecount, audiobars, analyzer, min_radius, max_radius, radius, min_decibel, max_decibel,
-         bass_trigger, bass_trigger_started):
+         gear_img):
     # option screen
-    spectrum.spectrum(pg, screen, screensize, audiot, audiotimecount, audiobars, analyzer, min_radius, max_radius,
-                      radius, min_decibel, max_decibel, bass_trigger, bass_trigger_started)
     optionscreen.optionse(pg, screen, screensize)
     # background
     bottombar.bottomnews(pg, screen, screensize)
