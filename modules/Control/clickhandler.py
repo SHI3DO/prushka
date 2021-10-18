@@ -1,5 +1,5 @@
 from modules.Sounds import soundsplayer
-from modules.Graphics.gui.main import optionscreen
+
 
 def LMB(lmb, screen, screensize, pg):
     # Music Handling
