@@ -20,5 +20,6 @@ def optionse(pg, screen, screensize, font, boldfont, circle_img, circlefilled_im
             screen.blit(circle_img, (screensize.current_w * 23 / 24, screensize.current_h / 7))
         else:
             f.close()
-            circlefilled_img = pg.transform.smoothscale(circlefilled_img, (screensize.current_h / 20, screensize.current_h / 20))
+            circlefilled_img = pg.transform.smoothscale(circlefilled_img, (screensize.current_h / 20,
+                                                                           screensize.current_h / 20))
             screen.blit(circlefilled_img, (screensize.current_w * 23 / 24, screensize.current_h / 7))

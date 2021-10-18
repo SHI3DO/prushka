@@ -26,9 +26,9 @@ f = open("./resources/tmp/options_screen.txt", 'w', encoding='UTF-8')
 f.write("0")
 f.close()
 
-f = open("./resources/tmp/options_discordrpc.txt", 'w', encoding='UTF-8')
-f.write("0")
-f.close()
+f = open("./resources/tmp/options_discordrpc.txt", 'r', encoding='UTF-8')
+if f.read() == "1":
+    discordrpc.discordrpc()
 
 
 def bgm_play():
