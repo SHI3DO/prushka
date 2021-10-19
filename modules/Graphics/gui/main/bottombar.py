@@ -19,6 +19,6 @@ def chatbtn(pg, screen, screensize, chat_img):
 
 
 def bottomlight(screen, screensize, glowdown_img):
-    glowdown_img.set_alpha(10)
+    glowdown_img.set_alpha(0.5)
     screen.blit(glowdown_img, (0, screensize.current_h * 4 / 5))
 

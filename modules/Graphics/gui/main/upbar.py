@@ -30,6 +30,6 @@ def Fps_shower(screen, screensize, font, clock):
 
 
 def uplight(screen, glowup_img):
-    glowup_img.set_alpha(150)
+    glowup_img.set_alpha(80)
     screen.blit(glowup_img, (0, 0))
 
