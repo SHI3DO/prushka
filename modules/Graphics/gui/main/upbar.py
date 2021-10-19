@@ -29,7 +29,4 @@ def Fps_shower(screen, screensize, font, clock):
     screen.blit(fps, (screensize.current_w / 128, screensize.current_h / 90))
 
 
-def uplight(screen, glowup_img):
-    glowup_img.set_alpha(80)
-    screen.blit(glowup_img, (0, 0))
 

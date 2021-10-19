@@ -1,6 +1,7 @@
-def optionse(pg, screen, screensize, font, boldfont, circle_img, circlefilled_img):
+def optionse(pg, screen, screensize, font, boldfont, circle_img, circlefilled_img, glowright_img):
     f = open("./resources/tmp/options_screen.txt", 'r', encoding='UTF-8')
     if f.read() == "1":
+        rightlight(screen, screensize, glowright_img)
         optionscreen = pg.Surface((screensize.current_w / 2, screensize.current_h))
         optionscreen.set_alpha(100)
         optionscreen.fill((0, 0, 0))
@@ -23,3 +24,8 @@ def optionse(pg, screen, screensize, font, boldfont, circle_img, circlefilled_im
             circlefilled_img = pg.transform.smoothscale(circlefilled_img, (screensize.current_h / 20,
                                                                            screensize.current_h / 20))
             screen.blit(circlefilled_img, (screensize.current_w * 23 / 24, screensize.current_h / 7))
+
+
+def rightlight(screen, screensize, glowright_img):
+    glowright_img.set_alpha(50)
+    screen.blit(glowright_img, (screensize.current_w * 7 / 8, 0))

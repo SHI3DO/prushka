@@ -2,13 +2,13 @@ from modules.Graphics.gui.main import bottombar, upbar, rightbar, leftbar, foote
 
 
 def play(pg, screen, screensize, clock, lightfont, regularfont, boldfont, play_img, pause_img, stop_img, next_img,
-         prev_img, gear_img, circle_img, circlefilled_img, chat_img, glowdown_img, glowup_img):
+         prev_img, gear_img, circle_img, circlefilled_img, chat_img, glowright_img, glowleft_img):
     # option screen
     # background
-    bottombar.bottomnews(pg, screen, screensize, glowdown_img)
+    bottombar.bottomnews(pg, screen, screensize)
 
-    rightbar.optionse(pg, screen, screensize, regularfont, boldfont, circle_img, circlefilled_img)
-    leftbar.chat_screen(pg, screen, screensize, regularfont, boldfont)
+    rightbar.optionse(pg, screen, screensize, regularfont, boldfont, circle_img, circlefilled_img, glowright_img)
+    leftbar.chat_screen(pg, screen, screensize, regularfont, boldfont, glowleft_img)
 
     bottombar.optionbtn(pg, screen, screensize, gear_img)
     bottombar.chatbtn(pg, screen, screensize, chat_img)
@@ -19,5 +19,3 @@ def play(pg, screen, screensize, clock, lightfont, regularfont, boldfont, play_i
     # playing_music
     upbar.Music_shower(pg, screen, screensize, regularfont, play_img, pause_img, stop_img, next_img, prev_img)
 
-    bottombar.bottomlight(screen, screensize, glowdown_img)
-    upbar.uplight(screen, glowup_img)
