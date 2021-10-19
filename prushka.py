@@ -53,6 +53,10 @@ gear_img = pg.image.load("./resources/textures/gear.png").convert_alpha()
 circle_img = pg.image.load("./resources/textures/circle.png").convert_alpha()
 circlefilled_img = pg.image.load("./resources/textures/circle_filled.png").convert_alpha()
 chat_img = pg.image.load("./resources/textures/chat.png").convert_alpha()
+glowdown_img = pg.image.load("./resources/textures/glow_down.png").convert_alpha()
+glowdown_img = pg.transform.smoothscale(glowdown_img, (screensize.current_w, screensize.current_h / 4))
+glowup_img = pg.image.load("./resources/textures/glow_up.png").convert_alpha()
+glowup_img = pg.transform.smoothscale(glowup_img, (screensize.current_w, screensize.current_h / 5))
 
 bg_img = pg.image.load("./resources/tmp/bg/a.png").convert_alpha()
 bg_img = pg.transform.smoothscale(bg_img, (screensize.current_w, screensize.current_h))
@@ -77,7 +81,7 @@ while mainLoop:
 
     # MainScene
     mainscene.play(pg, screen, screensize, clock, LightFont, RegularFont, BoldFont, play_img, pause_img, stop_img,
-                   next_img, prev_img, gear_img, circle_img, circlefilled_img, chat_img)
+                   next_img, prev_img, gear_img, circle_img, circlefilled_img, chat_img, glowdown_img, glowup_img)
 
     dt = clock.tick(120)
     pg.display.update()

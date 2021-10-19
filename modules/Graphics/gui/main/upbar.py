@@ -28,3 +28,8 @@ def Fps_shower(screen, screensize, font, clock):
     fps = font.render(f"{round(clock.get_fps())}", True, (255, 255, 255))
     screen.blit(fps, (screensize.current_w / 128, screensize.current_h / 90))
 
+
+def uplight(screen, glowup_img):
+    glowup_img.set_alpha(150)
+    screen.blit(glowup_img, (0, 0))
+
