@@ -34,3 +34,10 @@ def upg(pg, screen, screensize):
     upbar.set_alpha(100)
     upbar.fill((0, 0, 0))
     screen.blit(upbar, (0, 0))
+
+
+def playerpfp(screen, screensize, avatar, font):
+    screen.blit(avatar, (0, 0))
+    name = font.render(f"STR바보STR바보STR바보STR바보STR바보STR바보STR바보STR바보", True, (255, 255, 255))
+    screen.blit(name, (avatar.get_width() + screensize.current_w / 100, screensize.current_h / 90))
+

@@ -2,11 +2,15 @@ from modules.Graphics.gui.main import bottombar, upbar, rightbar, leftbar, foote
 
 
 def play(pg, screen, screensize, clock, lightfont, regularfont, boldfont, play_img, pause_img, stop_img, next_img,
-         prev_img, gear_img, circle_img, circlefilled_img, chat_img, glowright_img, glowleft_img, maininfo_img):
+         prev_img, gear_img, circle_img, circlefilled_img, chat_img, glowright_img, glowleft_img, maininfo_img,
+         avatar_img):
     # option screen
     # background
     bottombar.bottomnews(pg, screen, screensize, maininfo_img)
     upbar.upg(pg, screen, screensize)
+
+    upbar.Music_shower(pg, screen, screensize, regularfont, play_img, pause_img, stop_img, next_img, prev_img)
+    upbar.playerpfp(screen, screensize, avatar_img, regularfont)
 
     rightbar.optionse(pg, screen, screensize, regularfont, boldfont, circle_img, circlefilled_img)
     leftbar.chat_screen(pg, screen, screensize, regularfont, boldfont)
@@ -20,6 +24,6 @@ def play(pg, screen, screensize, clock, lightfont, regularfont, boldfont, play_i
     if fpsf.read() == "1":
         upbar.Fps_shower(screen, screensize, lightfont, clock)
     # playing_music
-    upbar.Music_shower(pg, screen, screensize, regularfont, play_img, pause_img, stop_img, next_img, prev_img)
+
     rightbar.rightlight(screen, screensize, glowright_img)
     leftbar.leftlight(screen, screensize, glowleft_img)
