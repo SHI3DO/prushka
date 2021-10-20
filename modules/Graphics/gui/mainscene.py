@@ -6,6 +6,7 @@ def play(pg, screen, screensize, clock, lightfont, regularfont, boldfont, play_i
     # option screen
     # background
     bottombar.bottomnews(pg, screen, screensize, maininfo_img)
+    upbar.upg(pg, screen, screensize)
 
     rightbar.optionse(pg, screen, screensize, regularfont, boldfont, circle_img, circlefilled_img)
     leftbar.chat_screen(pg, screen, screensize, regularfont, boldfont)
@@ -22,4 +23,3 @@ def play(pg, screen, screensize, clock, lightfont, regularfont, boldfont, play_i
     upbar.Music_shower(pg, screen, screensize, regularfont, play_img, pause_img, stop_img, next_img, prev_img)
     rightbar.rightlight(screen, screensize, glowright_img)
     leftbar.leftlight(screen, screensize, glowleft_img)
-

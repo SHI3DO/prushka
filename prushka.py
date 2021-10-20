@@ -94,7 +94,7 @@ while mainLoop:
                    next_img, prev_img, gear_img, circle_img, circlefilled_img, chat_img, glowright_img, glowleft_img,
                    maininfo_img)
 
-    dt = clock.tick(120)
+    dt = clock.tick(200)
     pg.display.update()
 
 pg.quit()

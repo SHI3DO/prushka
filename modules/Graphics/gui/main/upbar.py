@@ -29,4 +29,8 @@ def Fps_shower(screen, screensize, font, clock):
     screen.blit(fps, (screensize.current_w / 128, screensize.current_h / 90))
 
 
-
+def upg(pg, screen, screensize):
+    upbar = pg.Surface((screensize.current_w, screensize.current_h / 8))
+    upbar.set_alpha(100)
+    upbar.fill((0, 0, 0))
+    screen.blit(upbar, (0, 0))
