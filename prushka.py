@@ -5,6 +5,7 @@ from modules.Presence.RPC import discordrpc
 from modules.Control import clickhandler
 from modules.Graphics.gui import background
 from modules.Graphics.gui import mainscene
+import requests
 
 pg.init()
 icon = pg.image.load("./resources/prushka/icon32.ico")
@@ -29,9 +30,14 @@ f = open("./resources/tmp/chat_screen.txt", 'w', encoding='UTF-8')
 f.write("0")
 f.close()
 
-f = open("./resources/tmp/options_motion.txt", 'w', encoding='UTF-8')
-f.write("0")
-f.close()
+
+def download(url, file_name):
+    with open(file_name, "wb") as file:  # open in binary mode
+        response = requests.get(url)  # get request
+        file.write(response.content)  # write to file
+
+
+download("http://parfaitgds.kro.kr/p/test.png", "./resources/tmp/info/info.png")
 
 f = open("./resources/tmp/options_discordrpc.txt", 'r', encoding='UTF-8')
 if f.read() == "1":
@@ -50,6 +56,7 @@ gear_img = pg.image.load("./resources/textures/gear.png").convert_alpha()
 circle_img = pg.image.load("./resources/textures/circle.png").convert_alpha()
 circlefilled_img = pg.image.load("./resources/textures/circle_filled.png").convert_alpha()
 chat_img = pg.image.load("./resources/textures/chat.png").convert_alpha()
+maininfo_img = pg.image.load("./resources/tmp/info/info.png").convert_alpha()
 
 glowright_img = pg.image.load("./resources/textures/glow_right.png").convert_alpha()
 glowright_img = pg.transform.smoothscale(glowright_img, (screensize.current_w / 8, screensize.current_h))
@@ -84,7 +91,8 @@ while mainLoop:
 
     # MainScene
     mainscene.play(pg, screen, screensize, clock, LightFont, RegularFont, BoldFont, play_img, pause_img, stop_img,
-                   next_img, prev_img, gear_img, circle_img, circlefilled_img, chat_img, glowright_img, glowleft_img)
+                   next_img, prev_img, gear_img, circle_img, circlefilled_img, chat_img, glowright_img, glowleft_img,
+                   maininfo_img)
 
     dt = clock.tick(120)
     pg.display.update()

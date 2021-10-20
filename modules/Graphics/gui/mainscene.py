@@ -2,10 +2,10 @@ from modules.Graphics.gui.main import bottombar, upbar, rightbar, leftbar, foote
 
 
 def play(pg, screen, screensize, clock, lightfont, regularfont, boldfont, play_img, pause_img, stop_img, next_img,
-         prev_img, gear_img, circle_img, circlefilled_img, chat_img, glowright_img, glowleft_img):
+         prev_img, gear_img, circle_img, circlefilled_img, chat_img, glowright_img, glowleft_img, maininfo_img):
     # option screen
     # background
-    bottombar.bottomnews(pg, screen, screensize)
+    bottombar.bottomnews(pg, screen, screensize, maininfo_img)
 
     rightbar.optionse(pg, screen, screensize, regularfont, boldfont, circle_img, circlefilled_img)
     leftbar.chat_screen(pg, screen, screensize, regularfont, boldfont)
