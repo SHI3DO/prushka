@@ -50,7 +50,7 @@ def LMB(lmb, screen, screensize, pg):
 
     if prev_btn.collidepoint(lmb.pos):
         pg.mixer.music.unload()
-        f = open("./resources/tmp/music_list.txt", 'r', encoding='UTF-8')
+        f = open("./resources/runtime/music_list.txt", 'r', encoding='UTF-8')
         li = f.readlines()
         if len(li) > 0:
             print(li[len(li) - 1].replace("\n", ''))
@@ -69,7 +69,7 @@ def LMB(lmb, screen, screensize, pg):
 
     if stop_btn.collidepoint(lmb.pos):
         pg.mixer.music.unload()
-        f = open("./resources/tmp/music_list.txt", 'r', encoding='UTF-8')
+        f = open("./resources/runtime/music_list.txt", 'r', encoding='UTF-8')
         li = f.readlines()
         if len(li) > 0:
             print(li[len(li) - 1].replace("\n", ''))
@@ -80,7 +80,7 @@ def LMB(lmb, screen, screensize, pg):
 
     if next_btn.collidepoint(lmb.pos):
         pg.mixer.music.unload()
-        f = open("./resources/tmp/music_list.txt", 'r', encoding='UTF-8')
+        f = open("./resources/runtime/music_list.txt", 'r', encoding='UTF-8')
         li = f.readlines()
         if len(li) > 0:
             print(li[len(li) - 1].replace("\n", ''))
@@ -93,61 +93,61 @@ def LMB(lmb, screen, screensize, pg):
         f.close()
 
     if gear_btn.collidepoint(lmb.pos):
-        f = open("./resources/tmp/options_screen.txt", 'r', encoding='UTF-8')
+        f = open("./resources/runtime/options_screen.txt", 'r', encoding='UTF-8')
         if f.read() == "0":
             f.close()
-            f = open("./resources/tmp/options_screen.txt", 'w', encoding='UTF-8')
+            f = open("./resources/runtime/options_screen.txt", 'w', encoding='UTF-8')
             f.write("1")
         else:
             f.close()
-            f = open("./resources/tmp/options_screen.txt", 'w', encoding='UTF-8')
+            f = open("./resources/runtime/options_screen.txt", 'w', encoding='UTF-8')
             f.write("0")
 
         f.close()
 
     if discordrpc_btn.collidepoint(lmb.pos):
-        f = open("./resources/tmp/options_screen.txt", 'r', encoding='UTF-8')
+        f = open("./resources/runtime/options_screen.txt", 'r', encoding='UTF-8')
         if f.read() == "1":
             f.close()
-            fr = open("./resources/tmp/options_discordrpc.txt", 'r', encoding='UTF-8')
+            fr = open("./resources/runtime/options_discordrpc.txt", 'r', encoding='UTF-8')
             if fr.read() == "0":
                 fr.close()
-                fr = open("./resources/tmp/options_discordrpc.txt", 'w', encoding='UTF-8')
+                fr = open("./resources/runtime/options_discordrpc.txt", 'w', encoding='UTF-8')
                 fr.write("1")
             else:
                 fr.close()
-                fr = open("./resources/tmp/options_discordrpc.txt", 'w', encoding='UTF-8')
+                fr = open("./resources/runtime/options_discordrpc.txt", 'w', encoding='UTF-8')
                 fr.write("0")
             fr.close()
         else:
             f.close()
 
     if fps_btn.collidepoint(lmb.pos):
-        f = open("./resources/tmp/options_screen.txt", 'r', encoding='UTF-8')
+        f = open("./resources/runtime/options_screen.txt", 'r', encoding='UTF-8')
         if f.read() == "1":
             f.close()
-            fr = open("./resources/tmp/options_fps.txt", 'r', encoding='UTF-8')
+            fr = open("./resources/runtime/options_fps.txt", 'r', encoding='UTF-8')
             if fr.read() == "0":
                 fr.close()
-                fr = open("./resources/tmp/options_fps.txt", 'w', encoding='UTF-8')
+                fr = open("./resources/runtime/options_fps.txt", 'w', encoding='UTF-8')
                 fr.write("1")
             else:
                 fr.close()
-                fr = open("./resources/tmp/options_fps.txt", 'w', encoding='UTF-8')
+                fr = open("./resources/runtime/options_fps.txt", 'w', encoding='UTF-8')
                 fr.write("0")
             fr.close()
         else:
             f.close()
 
     if chat_btn.collidepoint(lmb.pos):
-        f = open("./resources/tmp/chat_screen.txt", 'r', encoding='UTF-8')
+        f = open("./resources/runtime/chat_screen.txt", 'r', encoding='UTF-8')
         if f.read() == "0":
             f.close()
-            f = open("./resources/tmp/chat_screen.txt", 'w', encoding='UTF-8')
+            f = open("./resources/runtime/chat_screen.txt", 'w', encoding='UTF-8')
             f.write("1")
         else:
             f.close()
-            f = open("./resources/tmp/chat_screen.txt", 'w', encoding='UTF-8')
+            f = open("./resources/runtime/chat_screen.txt", 'w', encoding='UTF-8')
             f.write("0")
 
         f.close()

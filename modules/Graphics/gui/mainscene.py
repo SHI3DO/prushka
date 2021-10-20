@@ -20,7 +20,7 @@ def play(pg, screen, screensize, clock, lightfont, regularfont, boldfont, play_i
     footer.shi3do(screen, screensize, regularfont)
 
     # fps
-    fpsf = open("./resources/tmp/options_fps.txt", 'r', encoding='UTF-8')
+    fpsf = open("./resources/runtime/options_fps.txt", 'r', encoding='UTF-8')
     if fpsf.read() == "1":
         upbar.Fps_shower(screen, screensize, lightfont, clock)
     # playing_music

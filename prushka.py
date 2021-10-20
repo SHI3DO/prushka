@@ -19,22 +19,22 @@ pg.mixer.music.set_endevent(END_MUSIC_EVENT)
 
 clock = pg.time.Clock()
 
-f = open("./resources/tmp/music_list.txt", 'w', encoding='UTF-8')
+f = open("./resources/runtime/music_list.txt", 'w', encoding='UTF-8')
 f.close()
 
-f = open("./resources/tmp/options_screen.txt", 'w', encoding='UTF-8')
+f = open("./resources/runtime/options_screen.txt", 'w', encoding='UTF-8')
 f.write("0")
 f.close()
 
-f = open("./resources/tmp/chat_screen.txt", 'w', encoding='UTF-8')
+f = open("./resources/runtime/chat_screen.txt", 'w', encoding='UTF-8')
 f.write("0")
 f.close()
 
 
-downloader.download("http://parfaitgds.kro.kr/p/test.png", "./resources/tmp/info/info.png")
-downloader.download("http://parfaitgds.kro.kr/p/testavtr.png", "./resources/tmp/info/avatar.png")
+downloader.download("http://parfaitgds.kro.kr/p/test.png", "./resources/runtime/info/info.png")
+downloader.download("http://parfaitgds.kro.kr/p/testavtr.png", "./resources/runtime/info/avatar.png")
 
-f = open("./resources/tmp/options_discordrpc.txt", 'r', encoding='UTF-8')
+f = open("./resources/runtime/options_discordrpc.txt", 'r', encoding='UTF-8')
 if f.read() == "1":
     discordrpc.discordrpc()
 
@@ -51,8 +51,8 @@ gear_img = pg.image.load("./resources/textures/gear.png").convert_alpha()
 circle_img = pg.image.load("./resources/textures/circle.png").convert_alpha()
 circlefilled_img = pg.image.load("./resources/textures/circle_filled.png").convert_alpha()
 chat_img = pg.image.load("./resources/textures/chat.png").convert_alpha()
-maininfo_img = pg.image.load("./resources/tmp/info/info.png").convert_alpha()
-avatar_img = pg.image.load("./resources/tmp/info/avatar.png").convert_alpha()
+maininfo_img = pg.image.load("./resources/runtime/info/info.png").convert_alpha()
+avatar_img = pg.image.load("./resources/runtime/info/avatar.png").convert_alpha()
 avatar_img = pg.transform.smoothscale(avatar_img, (screensize.current_h / 8, screensize.current_h / 8))
 
 glowright_img = pg.image.load("./resources/textures/glow_right.png").convert_alpha()
@@ -60,7 +60,7 @@ glowright_img = pg.transform.smoothscale(glowright_img, (screensize.current_w / 
 glowleft_img = pg.image.load("./resources/textures/glow_left.png").convert_alpha()
 glowleft_img = pg.transform.smoothscale(glowleft_img, (screensize.current_w / 8, screensize.current_h))
 
-bg_img = pg.image.load("./resources/tmp/bg/a.png").convert_alpha()
+bg_img = pg.image.load("./resources/runtime/bg/a.png").convert_alpha()
 bg_img = pg.transform.smoothscale(bg_img, (screensize.current_w, screensize.current_h))
 
 pg.mixer.music.unload()
@@ -91,7 +91,7 @@ while mainLoop:
                    next_img, prev_img, gear_img, circle_img, circlefilled_img, chat_img, glowright_img, glowleft_img,
                    maininfo_img, avatar_img)
 
-    dt = clock.tick(200)
+    dt = clock.tick(120)
     pg.display.update()
 
 pg.quit()

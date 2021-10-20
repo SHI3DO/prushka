@@ -1,5 +1,5 @@
 def optionse(pg, screen, screensize, font, boldfont, circle_img, circlefilled_img):
-    f = open("./resources/tmp/options_screen.txt", 'r', encoding='UTF-8')
+    f = open("./resources/runtime/options_screen.txt", 'r', encoding='UTF-8')
     if f.read() == "1":
         f.close()
         optionscreen = pg.Surface((screensize.current_w / 2, screensize.current_h))
@@ -14,7 +14,7 @@ def optionse(pg, screen, screensize, font, boldfont, circle_img, circlefilled_im
         screen.blit(discord_rpc_option_desc, (screensize.current_w * 2 / 3 + screensize.current_w * 1 / 80,
                                               screensize.current_h / 7 + discord_rpc_option.get_height()))
 
-        f = open("./resources/tmp/options_discordrpc.txt", 'r', encoding='UTF-8')
+        f = open("./resources/runtime/options_discordrpc.txt", 'r', encoding='UTF-8')
         if f.read() == "0":
             f.close()
             circle_img = pg.transform.smoothscale(circle_img, (screensize.current_h / 20, screensize.current_h / 20))
@@ -32,7 +32,7 @@ def optionse(pg, screen, screensize, font, boldfont, circle_img, circlefilled_im
         screen.blit(discord_rpc_option_desc, (screensize.current_w * 2 / 3 + screensize.current_w * 1 / 80,
                                               screensize.current_h * 2 / 7 + discord_rpc_option.get_height()))
 
-        f = open("./resources/tmp/options_fps.txt", 'r', encoding='UTF-8')
+        f = open("./resources/runtime/options_fps.txt", 'r', encoding='UTF-8')
         if f.read() == "0":
             f.close()
             circle_img = pg.transform.smoothscale(circle_img, (screensize.current_h / 20, screensize.current_h / 20))

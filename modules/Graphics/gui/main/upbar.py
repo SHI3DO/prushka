@@ -2,8 +2,8 @@ import os
 
 
 def Music_shower(pg, screen, screensize, font, play_img, pause_img, stop_img, next_img, prev_img):
-    if os.path.isfile("./resources/tmp/music_playing.txt"):
-        f = open("./resources/tmp/music_playing.txt", 'r')
+    if os.path.isfile("./resources/runtime/music_playing.txt"):
+        f = open("./resources/runtime/music_playing.txt", 'r')
         musictitle = font.render(f"now playing - {f.read()}", True, (255, 255, 255))
         f.close()
         screen.blit(musictitle, (screensize.current_w * 0.99 - musictitle.get_width(), screensize.current_h / 90))
@@ -25,8 +25,8 @@ def Music_shower(pg, screen, screensize, font, play_img, pause_img, stop_img, ne
 
 
 def Fps_shower(screen, screensize, font, clock):
-    fps = font.render(f"{round(clock.get_fps())}", True, (255, 255, 255))
-    screen.blit(fps, (screensize.current_w / 128, screensize.current_h / 90))
+    fps = font.render(f"{round(clock.get_fps())} fps", True, (255, 255, 255))
+    screen.blit(fps, (screensize.current_w / 90, screensize.current_h * 83 / 90))
 
 
 def upg(pg, screen, screensize):
@@ -38,6 +38,6 @@ def upg(pg, screen, screensize):
 
 def playerpfp(screen, screensize, avatar, font):
     screen.blit(avatar, (0, 0))
-    name = font.render(f"STR바보STR바보STR바보STR바보STR바보STR바보STR바보STR바보", True, (255, 255, 255))
+    name = font.render(f"STR바보", True, (255, 255, 255))
     screen.blit(name, (avatar.get_width() + screensize.current_w / 100, screensize.current_h / 90))
 

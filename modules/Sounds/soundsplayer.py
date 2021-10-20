@@ -25,10 +25,10 @@ def bgm_selector():
     print(toplay)
 
     returnval = [bgm_location_list[toplay], bgm_title_list[toplay], bgm_artist_list[toplay]]
-    f = open("./resources/tmp/music_playing.txt", 'w', encoding='UTF-8')
+    f = open("./resources/runtime/music_playing.txt", 'w', encoding='UTF-8')
     f.write(str(returnval[1]))
     f.close()
-    f = open("./resources/tmp/music_list.txt", 'a', encoding='UTF-8')
+    f = open("./resources/runtime/music_list.txt", 'a', encoding='UTF-8')
     f.write(str(returnval[0]) + "\n")
     f.close()
     print(f"now playing - {returnval[1]}")
