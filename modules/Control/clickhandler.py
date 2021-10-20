@@ -33,10 +33,15 @@ def LMB(lmb, screen, screensize, pg):
                        screensize.current_h / 30,
                        screensize.current_h / 30)
 
-    circle_btn = pg.Rect(screensize.current_w * 23 / 24,
-                         screensize.current_h / 7,
-                         screensize.current_h / 20,
-                         screensize.current_h / 20)
+    discordrpc_btn = pg.Rect(screensize.current_w * 23 / 24,
+                             screensize.current_h / 7,
+                             screensize.current_h / 20,
+                             screensize.current_h / 20)
+
+    fps_btn = pg.Rect(screensize.current_w * 23 / 24,
+                      screensize.current_h * 2 / 7,
+                      screensize.current_h / 20,
+                      screensize.current_h / 20)
 
     chat_btn = pg.Rect(screensize.current_w * 0.94,
                        screensize.current_h * 19 / 20,
@@ -100,7 +105,7 @@ def LMB(lmb, screen, screensize, pg):
 
         f.close()
 
-    if circle_btn.collidepoint(lmb.pos):
+    if discordrpc_btn.collidepoint(lmb.pos):
         f = open("./resources/tmp/options_screen.txt", 'r', encoding='UTF-8')
         if f.read() == "1":
             f.close()
@@ -112,6 +117,23 @@ def LMB(lmb, screen, screensize, pg):
             else:
                 fr.close()
                 fr = open("./resources/tmp/options_discordrpc.txt", 'w', encoding='UTF-8')
+                fr.write("0")
+            fr.close()
+        else:
+            f.close()
+
+    if fps_btn.collidepoint(lmb.pos):
+        f = open("./resources/tmp/options_screen.txt", 'r', encoding='UTF-8')
+        if f.read() == "1":
+            f.close()
+            fr = open("./resources/tmp/options_fps.txt", 'r', encoding='UTF-8')
+            if fr.read() == "0":
+                fr.close()
+                fr = open("./resources/tmp/options_fps.txt", 'w', encoding='UTF-8')
+                fr.write("1")
+            else:
+                fr.close()
+                fr = open("./resources/tmp/options_fps.txt", 'w', encoding='UTF-8')
                 fr.write("0")
             fr.close()
         else:

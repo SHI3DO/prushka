@@ -7,8 +7,8 @@ def play(pg, screen, screensize, clock, lightfont, regularfont, boldfont, play_i
     # background
     bottombar.bottomnews(pg, screen, screensize)
 
-    rightbar.optionse(pg, screen, screensize, regularfont, boldfont, circle_img, circlefilled_img, glowright_img)
-    leftbar.chat_screen(pg, screen, screensize, regularfont, boldfont, glowleft_img)
+    rightbar.optionse(pg, screen, screensize, regularfont, boldfont, circle_img, circlefilled_img)
+    leftbar.chat_screen(pg, screen, screensize, regularfont, boldfont)
 
     bottombar.optionbtn(pg, screen, screensize, gear_img)
     bottombar.chatbtn(pg, screen, screensize, chat_img)
@@ -20,4 +20,6 @@ def play(pg, screen, screensize, clock, lightfont, regularfont, boldfont, play_i
         upbar.Fps_shower(screen, screensize, lightfont, clock)
     # playing_music
     upbar.Music_shower(pg, screen, screensize, regularfont, play_img, pause_img, stop_img, next_img, prev_img)
+    rightbar.rightlight(screen, screensize, glowright_img)
+    leftbar.leftlight(screen, screensize, glowleft_img)
 
