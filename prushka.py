@@ -31,6 +31,10 @@ f = open("./resources/runtime/chat_screen.txt", 'w', encoding='UTF-8')
 f.write("0")
 f.close()
 
+f = open("./resources/runtime/music_pnum.txt", 'w', encoding='UTF-8')
+f.write("0")
+f.close()
+
 
 downloader.download("http://parfaitgds.kro.kr/p/test.png", "./resources/runtime/info/info.png")
 downloader.download("http://parfaitgds.kro.kr/p/testavtr.png", "./resources/runtime/info/avatar.png")

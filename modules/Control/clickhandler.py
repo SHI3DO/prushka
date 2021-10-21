@@ -53,14 +53,33 @@ def LMB(lmb, screen, screensize, pg):
         f = open("./resources/runtime/music_list.txt", 'r', encoding='UTF-8')
         li = f.readlines()
         if len(li) > 0:
-            print(li[len(li) - 1].replace("\n", ''))
-            pg.mixer.music.load(soundsplayer.bgm_selector()[0])
+            f.close()
+            fr = open("./resources/runtime/music_pnum.txt", 'r', encoding='UTF-8')
+            frr = fr.read()
+            if int(frr) > 1:
+                k = int(frr) - 1
+                fr.close()
+                fr = open("./resources/runtime/music_pnum.txt", 'w', encoding='UTF-8')
+                fr.write(str(k))
+            else:
+                k = len(li)
+                fr.close()
+                fr = open("./resources/runtime/music_pnum.txt", 'w', encoding='UTF-8')
+                fr.write(str(k))
+
+            fr = open("./resources/runtime/music_pnum.txt", 'r', encoding='UTF-8')
+            k = int(fr.read())
+            fr.close()
+            print(k)
+            soundsplayer.nowplaying(li[k-1].replace("\n", ''))
+            pg.mixer.music.load(li[k-1].replace("\n", ''))
             pg.mixer.music.play()
 
         else:
+            f.close()
             pg.mixer.music.load(soundsplayer.bgm_selector()[0])
             pg.mixer.music.play()
-        f.close()
+
     if play_btn.collidepoint(lmb.pos):
         pg.mixer.music.unpause()
 
@@ -83,6 +102,14 @@ def LMB(lmb, screen, screensize, pg):
         f = open("./resources/runtime/music_list.txt", 'r', encoding='UTF-8')
         li = f.readlines()
         if len(li) > 0:
+            f.close()
+            fr = open("./resources/runtime/music_pnum.txt", 'r', encoding='UTF-8')
+            frr = fr.read()
+            k = int(frr) + 1
+            fr.close()
+            fr = open("./resources/runtime/music_pnum.txt", 'w', encoding='UTF-8')
+            fr.write(str(k))
+
             print(li[len(li) - 1].replace("\n", ''))
             pg.mixer.music.load(soundsplayer.bgm_selector()[0])
             pg.mixer.music.play()

@@ -9,8 +9,6 @@ def bgm_selector():
     for i in range(0, len(bgm_list)):
         bgm_list[i] = "./resources/Sounds/ES/" + bgm_list[i]
 
-    print(f"Indexing Songs - {bgm_list}")
-
     bgm_location_list = []
     bgm_title_list = []
     bgm_artist_list = []
@@ -34,3 +32,17 @@ def bgm_selector():
     print(f"now playing - {returnval[1]}")
     return returnval
 
+
+def addplaying(title):
+    f = open("./resources/runtime/music_list.txt", 'a', encoding='UTF-8')
+    f.write(str(title) + "\n")
+    f.close()
+
+
+def nowplaying(title):
+    f = open("./resources/runtime/music_playing.txt", 'w', encoding='UTF-8')
+    loc = title[:-4] + ".json"
+    print(loc)
+    info = jsonreader.get(loc)
+    f.write(info.title)
+    f.close()
