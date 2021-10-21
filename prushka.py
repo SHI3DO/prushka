@@ -12,7 +12,7 @@ pg.init()
 icon = pg.image.load("./resources/prushka/icon32.ico")
 pg.display.set_icon(icon)
 screensize = pg.display.Info()
-screen = pg.display.set_mode((screensize.current_w, screensize.current_h), DOUBLEBUF)
+screen = pg.display.set_mode((screensize.current_w, screensize.current_h))
 pg.display.set_caption("prushka!")
 
 END_MUSIC_EVENT = pg.USEREVENT + 0  # ID for music Event

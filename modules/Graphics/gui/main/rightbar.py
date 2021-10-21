@@ -7,8 +7,8 @@ def optionse(pg, screen, screensize, font, boldfont, circle_img, circlefilled_im
         optionscreen.fill((0, 0, 0))
         screen.blit(optionscreen, (screensize.current_w * 2 / 3, 0))
 
-        discord_rpc_option = boldfont.render(f"Discord RPC", True, (255, 255, 255))
-        discord_rpc_option_desc = font.render(f"Discord Rich Presence", True, (255, 255, 255))
+        discord_rpc_option = boldfont.render("Discord RPC", True, (255, 255, 255))
+        discord_rpc_option_desc = font.render("Discord Rich Presence", True, (255, 255, 255))
         screen.blit(discord_rpc_option, (screensize.current_w * 2 / 3 + screensize.current_w * 1 / 80,
                                          screensize.current_h / 7))
         screen.blit(discord_rpc_option_desc, (screensize.current_w * 2 / 3 + screensize.current_w * 1 / 80,
@@ -25,8 +25,8 @@ def optionse(pg, screen, screensize, font, boldfont, circle_img, circlefilled_im
                                                                            screensize.current_h / 20))
             screen.blit(circlefilled_img, (screensize.current_w * 23 / 24, screensize.current_h / 7))
 
-        discord_rpc_option = boldfont.render(f"FPS", True, (255, 255, 255))
-        discord_rpc_option_desc = font.render(f"frames per second", True, (255, 255, 255))
+        discord_rpc_option = boldfont.render("FPS", True, (255, 255, 255))
+        discord_rpc_option_desc = font.render("frames per second", True, (255, 255, 255))
         screen.blit(discord_rpc_option, (screensize.current_w * 2 / 3 + screensize.current_w * 1 / 80,
                                          screensize.current_h * 2 / 7))
         screen.blit(discord_rpc_option_desc, (screensize.current_w * 2 / 3 + screensize.current_w * 1 / 80,
