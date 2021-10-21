@@ -6,6 +6,7 @@ from modules.Control import clickhandler
 from modules.Graphics.gui import background
 from modules.Graphics.gui import mainscene
 from modules.utils import downloader
+from modules.Control import keycontrol
 
 pg.init()
 icon = pg.image.load("./resources/prushka/icon32.ico")
@@ -77,6 +78,12 @@ while mainLoop:
             if event.type == pg.MOUSEBUTTONDOWN:
                 if event.button == 1:  # Left Mouse
                     clickhandler.LMB(event, screen, screensize, pg)
+
+            if event.type == pg.KEYDOWN:
+                if event.key == pg.key.key_code("z"):
+                    keycontrol.inputkey("z")
+                if event.key == pg.key.key_code("c"):
+                    keycontrol.inputkey("c")
             if event.type == END_MUSIC_EVENT:
                 pg.mixer.music.unload()
                 pg.mixer.music.load(soundsplayer.bgm_selector()[0])
