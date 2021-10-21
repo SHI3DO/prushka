@@ -36,8 +36,10 @@ def upg(pg, screen, screensize):
     screen.blit(upbar, (0, 0))
 
 
-def playerpfp(screen, screensize, avatar, font):
+def playerpfp(screen, screensize, avatar, font, bigregularfont):
     screen.blit(avatar, (0, 0))
-    name = font.render(f"STR바보", True, (255, 255, 255))
+    name = bigregularfont.render(f"노엘님", True, (255, 255, 255))
     screen.blit(name, (avatar.get_width() + screensize.current_w / 100, screensize.current_h / 90))
+    name = font.render(f"Rank #65536", True, (255, 255, 255))
+    screen.blit(name, (avatar.get_width() + screensize.current_w / 100, screensize.current_h / 20))
 

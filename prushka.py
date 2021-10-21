@@ -47,6 +47,10 @@ BoldFont = pg.font.Font('./resources/Fonts/GmarketSansTTFBold.ttf', int(screensi
 LightFont = pg.font.Font('./resources/Fonts/GmarketSansTTFLight.ttf', int(screensize.current_h / 40))
 RegularFont = pg.font.Font('./resources/Fonts/GmarketSansTTFMedium.ttf', int(screensize.current_h / 40))
 
+BigBoldFont = pg.font.Font('./resources/Fonts/GmarketSansTTFBold.ttf', int(screensize.current_h / 30))
+BigLightFont = pg.font.Font('./resources/Fonts/GmarketSansTTFLight.ttf', int(screensize.current_h / 30))
+BigRegularFont = pg.font.Font('./resources/Fonts/GmarketSansTTFMedium.ttf', int(screensize.current_h / 30))
+
 play_img = pg.image.load("./resources/textures/play.png").convert_alpha()
 pause_img = pg.image.load("./resources/textures/pause.png").convert_alpha()
 stop_img = pg.image.load("./resources/textures/stop.png").convert_alpha()
@@ -98,9 +102,9 @@ while mainLoop:
     background.bg(screen, bg_img)
 
     # MainScene
-    mainscene.play(pg, screen, screensize, clock, LightFont, RegularFont, BoldFont, play_img, pause_img, stop_img,
-                   next_img, prev_img, gear_img, circle_img, circlefilled_img, chat_img, glowright_img, glowleft_img,
-                   maininfo_img, avatar_img)
+    mainscene.play(pg, screen, screensize, clock, LightFont, RegularFont, BoldFont, BigLightFont, BigRegularFont,
+                   BigBoldFont, play_img, pause_img, stop_img, next_img, prev_img, gear_img, circle_img,
+                   circlefilled_img, chat_img, glowright_img, glowleft_img, maininfo_img, avatar_img)
 
     dt = clock.tick(120)
     pg.display.update()
