@@ -1,6 +1,5 @@
 import pygame as pg
 from modules.Sounds import soundsplayer
-from pygame.locals import *
 from modules.Presence.RPC import discordrpc
 from modules.Control import clickhandler
 from modules.Graphics.gui import background
