@@ -97,10 +97,58 @@ while mainLoop:
                     clickhandler.LMB(event, screen, screensize, pg)
 
             if event.type == pg.KEYDOWN:
-                if event.key == pg.key.key_code("z"):
-                    keycontrol.inputkey("z", pg)
+                if event.key == pg.key.key_code("a"):
+                    keycontrol.inputkey("a", pg)
+                if event.key == pg.key.key_code("b"):
+                    keycontrol.inputkey("b", pg)
                 if event.key == pg.key.key_code("c"):
                     keycontrol.inputkey("c", pg)
+                if event.key == pg.key.key_code("d"):
+                    keycontrol.inputkey("d", pg)
+                if event.key == pg.key.key_code("e"):
+                    keycontrol.inputkey("e", pg)
+                if event.key == pg.key.key_code("f"):
+                    keycontrol.inputkey("f", pg)
+                if event.key == pg.key.key_code("g"):
+                    keycontrol.inputkey("g", pg)
+                if event.key == pg.key.key_code("h"):
+                    keycontrol.inputkey("h", pg)
+                if event.key == pg.key.key_code("i"):
+                    keycontrol.inputkey("i", pg)
+                if event.key == pg.key.key_code("j"):
+                    keycontrol.inputkey("j", pg)
+                if event.key == pg.key.key_code("k"):
+                    keycontrol.inputkey("k", pg)
+                if event.key == pg.key.key_code("l"):
+                    keycontrol.inputkey("l", pg)
+                if event.key == pg.key.key_code("m"):
+                    keycontrol.inputkey("m", pg)
+                if event.key == pg.key.key_code("n"):
+                    keycontrol.inputkey("n", pg)
+                if event.key == pg.key.key_code("o"):
+                    keycontrol.inputkey("o", pg)
+                if event.key == pg.key.key_code("p"):
+                    keycontrol.inputkey("p", pg)
+                if event.key == pg.key.key_code("q"):
+                    keycontrol.inputkey("q", pg)
+                if event.key == pg.key.key_code("r"):
+                    keycontrol.inputkey("r", pg)
+                if event.key == pg.key.key_code("s"):
+                    keycontrol.inputkey("s", pg)
+                if event.key == pg.key.key_code("t"):
+                    keycontrol.inputkey("t", pg)
+                if event.key == pg.key.key_code("u"):
+                    keycontrol.inputkey("u", pg)
+                if event.key == pg.key.key_code("v"):
+                    keycontrol.inputkey("v", pg)
+                if event.key == pg.key.key_code("w"):
+                    keycontrol.inputkey("w", pg)
+                if event.key == pg.key.key_code("x"):
+                    keycontrol.inputkey("x", pg)
+                if event.key == pg.key.key_code("y"):
+                    keycontrol.inputkey("y", pg)
+                if event.key == pg.key.key_code("z"):
+                    keycontrol.inputkey("z", pg)
             if event.type == END_MUSIC_EVENT:
                 pg.mixer.music.unload()
                 pg.mixer.music.load(soundsplayer.bgm_selector()[0])
