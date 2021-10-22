@@ -1,5 +1,9 @@
-def inputkey(inx):
+from modules.Sounds import soundsplayer
+
+
+def inputkey(inx, pg):
     if inx == "z":
+        soundsplayer.btn01(pg)
         f = open("./resources/runtime/chat_screen.txt", 'r', encoding='UTF-8')
         if f.read() == "0":
             f.close()
@@ -13,6 +17,7 @@ def inputkey(inx):
         f.close()
 
     if inx == "c":
+        soundsplayer.btn01(pg)
         f = open("./resources/runtime/options_screen.txt", 'r', encoding='UTF-8')
         if f.read() == "0":
             f.close()

@@ -49,6 +49,7 @@ def LMB(lmb, screen, screensize, pg):
                        screensize.current_h / 30)
 
     if prev_btn.collidepoint(lmb.pos):
+        soundsplayer.btn01(pg)
         pg.mixer.music.unload()
         f = open("./resources/runtime/music_list.txt", 'r', encoding='UTF-8')
         li = f.readlines()
@@ -81,12 +82,15 @@ def LMB(lmb, screen, screensize, pg):
             pg.mixer.music.play()
 
     if play_btn.collidepoint(lmb.pos):
+        soundsplayer.btn01(pg)
         pg.mixer.music.unpause()
 
     if pause_btn.collidepoint(lmb.pos):
+        soundsplayer.btn01(pg)
         pg.mixer.music.pause()
 
     if stop_btn.collidepoint(lmb.pos):
+        soundsplayer.btn01(pg)
         pg.mixer.music.unload()
         f = open("./resources/runtime/music_list.txt", 'r', encoding='UTF-8')
         li = f.readlines()
@@ -98,6 +102,7 @@ def LMB(lmb, screen, screensize, pg):
         f.close()
 
     if next_btn.collidepoint(lmb.pos):
+        soundsplayer.btn01(pg)
         pg.mixer.music.unload()
         f = open("./resources/runtime/music_list.txt", 'r', encoding='UTF-8')
         li = f.readlines()
@@ -120,6 +125,7 @@ def LMB(lmb, screen, screensize, pg):
         f.close()
 
     if gear_btn.collidepoint(lmb.pos):
+        soundsplayer.btn01(pg)
         f = open("./resources/runtime/options_screen.txt", 'r', encoding='UTF-8')
         if f.read() == "0":
             f.close()
@@ -167,6 +173,7 @@ def LMB(lmb, screen, screensize, pg):
             f.close()
 
     if chat_btn.collidepoint(lmb.pos):
+        soundsplayer.btn01(pg)
         f = open("./resources/runtime/chat_screen.txt", 'r', encoding='UTF-8')
         if f.read() == "0":
             f.close()

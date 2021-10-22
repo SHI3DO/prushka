@@ -46,3 +46,7 @@ def nowplaying(title):
     info = jsonreader.get(loc)
     f.write(info.title)
     f.close()
+
+
+def btn01(pg):
+    pg.mixer.find_channel().play(pg.mixer.Sound("./resources/Sounds/GS/btn01.wav"))

@@ -8,6 +8,7 @@ from modules.Graphics.gui import mainscene
 from modules.utils import downloader
 from modules.Control import keycontrol
 
+
 pg.init()
 icon = pg.image.load("./resources/prushka/icon32.ico")
 pg.display.set_icon(icon)
@@ -17,6 +18,7 @@ pg.display.set_caption("prushka!")
 
 END_MUSIC_EVENT = pg.USEREVENT + 0  # ID for music Event
 pg.mixer.music.set_endevent(END_MUSIC_EVENT)
+pg.mixer.set_num_channels(64)
 
 clock = pg.time.Clock()
 
@@ -35,7 +37,6 @@ f = open("./resources/runtime/music_pnum.txt", 'w', encoding='UTF-8')
 f.write("0")
 f.close()
 
-
 downloader.download("http://parfaitgds.kro.kr/p/test.png", "./resources/runtime/info/info.png")
 downloader.download("http://parfaitgds.kro.kr/p/testavtr.png", "./resources/runtime/info/avatar.png")
 
@@ -51,6 +52,10 @@ BigBoldFont = pg.font.Font('./resources/Fonts/GmarketSansTTFBold.ttf', int(scree
 BigLightFont = pg.font.Font('./resources/Fonts/GmarketSansTTFLight.ttf', int(screensize.current_h / 30))
 BigRegularFont = pg.font.Font('./resources/Fonts/GmarketSansTTFMedium.ttf', int(screensize.current_h / 30))
 
+SBigBoldFont = pg.font.Font('./resources/Fonts/GmarketSansTTFBold.ttf', int(screensize.current_h / 15))
+SBigLightFont = pg.font.Font('./resources/Fonts/GmarketSansTTFLight.ttf', int(screensize.current_h / 15))
+SBigRegularFont = pg.font.Font('./resources/Fonts/GmarketSansTTFMedium.ttf', int(screensize.current_h / 15))
+
 play_img = pg.image.load("./resources/textures/play.png").convert_alpha()
 pause_img = pg.image.load("./resources/textures/pause.png").convert_alpha()
 stop_img = pg.image.load("./resources/textures/stop.png").convert_alpha()
@@ -60,6 +65,9 @@ gear_img = pg.image.load("./resources/textures/gear.png").convert_alpha()
 circle_img = pg.image.load("./resources/textures/circle.png").convert_alpha()
 circlefilled_img = pg.image.load("./resources/textures/circle_filled.png").convert_alpha()
 chat_img = pg.image.load("./resources/textures/chat.png").convert_alpha()
+beat_img = pg.image.load("./resources/textures/beat.png").convert_alpha()
+
+
 maininfo_img = pg.image.load("./resources/runtime/info/info.png").convert_alpha()
 avatar_img = pg.image.load("./resources/runtime/info/avatar.png").convert_alpha()
 avatar_img = pg.transform.smoothscale(avatar_img, (screensize.current_h / 8, screensize.current_h / 8))
@@ -80,6 +88,7 @@ mainLoop = True
 while mainLoop:
     screen.fill((0, 0, 0))
     events = pg.event.get()
+    dt = clock.tick(120)
 
     if events:
         for event in events:
@@ -89,9 +98,9 @@ while mainLoop:
 
             if event.type == pg.KEYDOWN:
                 if event.key == pg.key.key_code("z"):
-                    keycontrol.inputkey("z")
+                    keycontrol.inputkey("z", pg)
                 if event.key == pg.key.key_code("c"):
-                    keycontrol.inputkey("c")
+                    keycontrol.inputkey("c", pg)
             if event.type == END_MUSIC_EVENT:
                 pg.mixer.music.unload()
                 pg.mixer.music.load(soundsplayer.bgm_selector()[0])
@@ -103,10 +112,10 @@ while mainLoop:
 
     # MainScene
     mainscene.play(pg, screen, screensize, clock, LightFont, RegularFont, BoldFont, BigLightFont, BigRegularFont,
-                   BigBoldFont, play_img, pause_img, stop_img, next_img, prev_img, gear_img, circle_img,
-                   circlefilled_img, chat_img, glowright_img, glowleft_img, maininfo_img, avatar_img)
+                   BigBoldFont, SBigRegularFont, SBigLightFont, SBigBoldFont, play_img, pause_img, stop_img,
+                   next_img, prev_img, gear_img, circle_img, circlefilled_img, chat_img, glowright_img, glowleft_img,
+                   maininfo_img, avatar_img, beat_img)
 
-    dt = clock.tick(120)
     pg.display.update()
 
 pg.quit()

@@ -3,7 +3,7 @@ def optionse(pg, screen, screensize, font, boldfont, circle_img, circlefilled_im
     if f.read() == "1":
         f.close()
         optionscreen = pg.Surface((screensize.current_w / 2, screensize.current_h))
-        optionscreen.set_alpha(100)
+        optionscreen.set_alpha(200)
         optionscreen.fill((0, 0, 0))
         screen.blit(optionscreen, (screensize.current_w * 2 / 3, 0))
 
