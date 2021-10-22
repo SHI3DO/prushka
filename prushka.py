@@ -7,6 +7,7 @@ from modules.Graphics.gui import background
 from modules.Graphics.gui import mainscene
 from modules.utils import downloader
 from modules.Control import keycontrol
+from modules.utils import reqdir
 
 
 pg.init()
@@ -22,20 +23,7 @@ pg.mixer.set_num_channels(64)
 
 clock = pg.time.Clock()
 
-f = open("./resources/runtime/music_list.txt", 'w', encoding='UTF-8')
-f.close()
-
-f = open("./resources/runtime/options_screen.txt", 'w', encoding='UTF-8')
-f.write("0")
-f.close()
-
-f = open("./resources/runtime/chat_screen.txt", 'w', encoding='UTF-8')
-f.write("0")
-f.close()
-
-f = open("./resources/runtime/music_pnum.txt", 'w', encoding='UTF-8')
-f.write("0")
-f.close()
+reqdir.make()
 
 downloader.download("http://parfaitgds.kro.kr/p/test.png", "./resources/runtime/info/info.png")
 downloader.download("http://parfaitgds.kro.kr/p/testavtr.png", "./resources/runtime/info/avatar.png")
