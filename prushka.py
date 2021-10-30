@@ -3,11 +3,10 @@ from modules.Sounds import soundsplayer
 from modules.Presence.RPC import discordrpc
 from modules.Control import clickhandler
 from modules.Graphics.gui import background
-from modules.Graphics.gui import mainscene
+from modules.Graphics.gui import mainscene, beatscene
 from modules.utils import downloader
 from modules.Control import keycontrol
 from modules.utils import reqdir
-
 
 pg.init()
 icon = pg.image.load("./resources/prushka/icon32.ico")
@@ -39,9 +38,9 @@ BigBoldFont = pg.font.Font('./resources/Fonts/GmarketSansTTFBold.ttf', int(scree
 BigLightFont = pg.font.Font('./resources/Fonts/GmarketSansTTFLight.ttf', int(screensize.current_h / 30))
 BigRegularFont = pg.font.Font('./resources/Fonts/GmarketSansTTFMedium.ttf', int(screensize.current_h / 30))
 
-SBigBoldFont = pg.font.Font('./resources/Fonts/GmarketSansTTFBold.ttf', int(screensize.current_h / 15))
-SBigLightFont = pg.font.Font('./resources/Fonts/GmarketSansTTFLight.ttf', int(screensize.current_h / 15))
-SBigRegularFont = pg.font.Font('./resources/Fonts/GmarketSansTTFMedium.ttf', int(screensize.current_h / 15))
+SBigBoldFont = pg.font.Font('./resources/Fonts/GmarketSansTTFBold.ttf', int(screensize.current_h / 20))
+SBigLightFont = pg.font.Font('./resources/Fonts/GmarketSansTTFLight.ttf', int(screensize.current_h / 20))
+SBigRegularFont = pg.font.Font('./resources/Fonts/GmarketSansTTFMedium.ttf', int(screensize.current_h / 20))
 
 play_img = pg.image.load("./resources/textures/play.png").convert_alpha()
 pause_img = pg.image.load("./resources/textures/pause.png").convert_alpha()
@@ -53,7 +52,6 @@ circle_img = pg.image.load("./resources/textures/circle.png").convert_alpha()
 circlefilled_img = pg.image.load("./resources/textures/circle_filled.png").convert_alpha()
 chat_img = pg.image.load("./resources/textures/chat.png").convert_alpha()
 beat_img = pg.image.load("./resources/textures/beat.png").convert_alpha()
-
 
 maininfo_img = pg.image.load("./resources/runtime/info/info.png").convert_alpha()
 avatar_img = pg.image.load("./resources/runtime/info/avatar.png").convert_alpha()
@@ -146,10 +144,23 @@ while mainLoop:
     background.bg(screen, bg_img)
 
     # MainScene
-    mainscene.play(pg, screen, screensize, clock, LightFont, RegularFont, BoldFont, BigLightFont, BigRegularFont,
-                   BigBoldFont, SBigRegularFont, SBigLightFont, SBigBoldFont, play_img, pause_img, stop_img,
-                   next_img, prev_img, gear_img, circle_img, circlefilled_img, chat_img, glowright_img, glowleft_img,
-                   maininfo_img, avatar_img, beat_img)
+    fm = open("./resources/runtime/mainscene_active.txt", 'r', encoding='UTF-8')
+    maf = fm.read()
+    if maf == "0":
+        mainscene.play(pg, screen, screensize, clock, LightFont, RegularFont, BoldFont, BigLightFont, BigRegularFont,
+                       BigBoldFont, SBigRegularFont, SBigLightFont, SBigBoldFont, play_img, pause_img, stop_img,
+                       next_img, prev_img, gear_img, circle_img, circlefilled_img, chat_img, glowright_img,
+                       glowleft_img, maininfo_img, avatar_img)
+    fm.close()
+
+    fm = open("./resources/runtime/beatscene_active.txt", 'r', encoding='UTF-8')
+    maf = fm.read()
+    if maf == "1":
+        beatscene.play(pg, screen, screensize, clock, LightFont, RegularFont, BoldFont, BigLightFont, BigRegularFont,
+                       BigBoldFont, SBigRegularFont, SBigLightFont, SBigBoldFont, play_img, pause_img, stop_img,
+                       next_img, prev_img, gear_img, circle_img, circlefilled_img, chat_img, glowright_img,
+                       glowleft_img, maininfo_img, avatar_img)
+    fm.close()
 
     pg.display.update()
 

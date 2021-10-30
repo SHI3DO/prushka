@@ -1,1 +1,4 @@
-./resources/Sounds/ES/4.mp3
+./resources/Sounds/ES/7.mp3
+./resources/Sounds/ES/6.mp3
+./resources/Sounds/ES/7.mp3
+./resources/Sounds/ES/8.mp3

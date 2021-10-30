@@ -48,6 +48,11 @@ def LMB(lmb, screen, screensize, pg):
                        screensize.current_h / 30,
                        screensize.current_h / 30)
 
+    tobeatscene_btn = pg.Rect(screensize.current_w - 2 * screensize.current_h * 27 / 80,
+                              screensize.current_h * 1 / 8,
+                              screensize.current_w * 1 / 2,
+                              screensize.current_h * 1 / 9)
+
     if prev_btn.collidepoint(lmb.pos):
         soundsplayer.btn01(pg)
         pg.mixer.music.unload()
@@ -184,4 +189,12 @@ def LMB(lmb, screen, screensize, pg):
             f = open("./resources/runtime/chat_screen.txt", 'w', encoding='UTF-8')
             f.write("0")
 
+        f.close()
+
+    if tobeatscene_btn.collidepoint(lmb.pos):
+        f = open("./resources/runtime/mainscene_active.txt", 'w', encoding='UTF-8')
+        f.write("1")
+        f.close()
+        f = open("./resources/runtime/beatscene_active.txt", 'w', encoding='UTF-8')
+        f.write("1")
         f.close()

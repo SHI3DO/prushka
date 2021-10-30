@@ -24,10 +24,6 @@ def Music_shower(pg, screen, screensize, font, play_img, pause_img, stop_img, ne
         screen.blit(next_img, (screensize.current_w * 0.97, screensize.current_h / 20))
 
 
-def Fps_shower(screen, screensize, font, clock):
-    fps = font.render(f"{round(clock.get_fps())} fps", True, (255, 255, 255))
-    screen.blit(fps, (screensize.current_w / 90, screensize.current_h * 83 / 90))
-
 
 def upg(pg, screen, screensize):
     upbar = pg.Surface((screensize.current_w, screensize.current_h / 8))
